@@ -1,6 +1,7 @@
 package solutions.alva.of.son.tato
 
 import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
@@ -23,6 +24,12 @@ class MainActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = Firebase.auth
 
+        signOut()
     }
 
+    private fun signOut() {
+        Firebase.auth.signOut()
+        val intent = Intent(this,SignInActivity::class.java)
+        startActivity(intent)
+    }
 }

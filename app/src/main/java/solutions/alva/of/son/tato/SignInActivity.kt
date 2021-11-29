@@ -39,6 +39,21 @@ class SignInActivity : AppCompatActivity() {
                 }
             }
         }
+
+        //start register activity
+        binding.signUpTextView.setOnClickListener{
+            val intent = Intent(this,SignUpActivity::class.java)
+            this.startActivity(intent)
+        }
+    }
+
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if(currentUser != null){
+            reload();
+        }
     }
 
 
