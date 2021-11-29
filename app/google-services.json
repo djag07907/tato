@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "895171627330",
+    "project_id": "tato-11ad2",
+    "storage_bucket": "tato-11ad2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895171627330:android:b0486302d64e27b1d760db",
+        "android_client_info": {
+          "package_name": "solutions.alva.of.son.tato"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895171627330-q9aqn3ntlvoik87smr1s5bvegph3if1n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAH5kjkry8-Rswvz_ilUbjpLexbe9Uq1Ic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895171627330-q9aqn3ntlvoik87smr1s5bvegph3if1n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
