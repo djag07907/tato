@@ -24,7 +24,9 @@ class MainActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = Firebase.auth
 
-        signOut()
+        binding.logoutBtn.setOnClickListener {
+            signOut()
+        }
     }
 
     private fun signOut() {
@@ -32,4 +34,5 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this,SignInActivity::class.java)
         startActivity(intent)
     }
+
 }

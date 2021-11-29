@@ -73,13 +73,27 @@ class SignUpActivity : AppCompatActivity() {
 
     }
 
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if (currentUser != null){
+            if (currentUser.isEmailVerified){
+                reload()
+            } else {
+                val intent = Intent(this,CheckEmailActivity::class.java)
+                startActivity(intent)
+            }
+        }
+    }
 
 
     private fun createAccount(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-
+                    val intent = Intent(this, CheckEmailActivity::class.java)
+                    startActivity(intent)
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("TAG", "createUserWithEmail:failure", task.exception)
@@ -88,4 +102,10 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
     }
+
+    private fun reload() {
+        val intent = Intent(this, MainActivity::class.java)
+        this.startActivity(intent)
+    }
+
 }
