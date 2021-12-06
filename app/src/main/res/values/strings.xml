@@ -5,8 +5,8 @@
     <string name="new_password">Nueva contraseña</string>
     <string name="current_password">Contraseña actual</string>
     <string name="name">Nombre Completo</string>
-    <string name="email">Email</string>
-    <string name="login">Login</string>
+    <string name="email">Correo Electronico</string>
+    <string name="login">Iniciar Sesion</string>
     <string name="repeat_password">Confirma la contraseña</string>
     <string name="signup">Registrate</string>
     <string name="text_signup">No tienes cuenta?</string>
