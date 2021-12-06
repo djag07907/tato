@@ -32,9 +32,9 @@ class MainActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = Firebase.auth
 
-//        binding.logoutBtn.setOnClickListener {
-//            signOut()
-//        }
+        binding.signOutImageView.setOnClickListener {
+            signOut()
+        }
         binding.updateProfileAppCompatButton.setOnClickListener {
             val name = binding.nameEditText.text.toString()
             updateProfile(name)
@@ -43,6 +43,17 @@ class MainActivity : AppCompatActivity() {
         binding.profileImageView.setOnClickListener {
             fileManager()
         }
+
+        binding.updatePasswordTextView.setOnClickListener {
+            val intent = Intent(this,UpdatePasswordActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.deleteAccountTextView.setOnClickListener {
+            val intent = Intent(this,DeleteAccountActivity::class.java)
+            startActivity(intent)
+        }
+
 
         updateUI()
     }

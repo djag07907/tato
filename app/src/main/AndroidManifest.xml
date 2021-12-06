@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tato">
         <activity
+            android:name=".DeleteAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UpdatePasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".AccountRecoveryActivity"
             android:exported="false" />
         <activity
@@ -21,7 +27,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:theme="@style/Theme.Main"/>
+            android:theme="@style/Theme.Main" />
         <activity
             android:name=".SignInActivity"
             android:exported="true">
