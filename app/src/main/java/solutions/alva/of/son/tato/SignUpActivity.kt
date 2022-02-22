@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.provider.Telephony.Carriers.PASSWORD
 import android.util.Log
 import android.util.Patterns
+import android.view.View
+import android.widget.RadioButton
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -27,6 +29,7 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
         // Initialize Firebase Auth
         auth = Firebase.auth
+
 
         binding.signUpButton.setOnClickListener {
             val mEmail = binding.emailEditText.text.toString()
@@ -71,6 +74,19 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+//        val checkedRadioButtonId = userRadioGroup.checkedRadioButtonId // Returns View.NO_ID if nothing is checked.
+//        userRadioGroup.setOnCheckedChangeListener { group, checkedId ->
+//            // Responds to child RadioButton checked/unchecked
+//        }
+//
+//        // To check a radio button
+//        radioButton.isChecked = true
+//
+//        // To listen for a radio button's checked/unchecked state changes
+//        radioButton.setOnCheckedChangeListener { buttonView, isChecked
+//            // Responds to radio button being checked/unchecked
+//        }
+
     }
 
     public override fun onStart() {
@@ -83,6 +99,26 @@ class SignUpActivity : AppCompatActivity() {
             } else {
                 val intent = Intent(this,CheckEmailActivity::class.java)
                 startActivity(intent)
+            }
+        }
+    }
+
+    // For a reason, private bricks this function
+    fun onRadioButtonClicked(view: View) {
+        if (view is RadioButton) {
+            // Is the button now checked?
+            val checked = view.isChecked
+
+            // Check which radio button was clicked
+            when (view.getId()) {
+                R.id.radio_client ->
+                    if (checked) {
+                        // Store state as client
+                    }
+                R.id.radio_tech ->
+                    if (checked) {
+                        // Store state as tech
+                    }
             }
         }
     }
