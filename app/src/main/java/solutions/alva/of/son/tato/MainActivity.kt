@@ -1,6 +1,7 @@
 package solutions.alva.of.son.tato
 
 import android.app.Activity
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -11,9 +12,12 @@ import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import solutions.alva.of.son.tato.classes.Users
 import solutions.alva.of.son.tato.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +26,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityMainBinding
     private val fileResult = 1
+    private lateinit var db : FirebaseFirestore
+    private lateinit var usuarioActual : Users
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +61,35 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
+        db = Firebase.firestore
+
+        //remove update user if not working
+        val uID = auth.currentUser?.uid?: ""
+
+        Log.w("DEBUG HEEEEREEEEEEEE",  uID)
+
+        db.collection("users")
+            .whereEqualTo("uid", uID)
+            .get()
+            .addOnSuccessListener { documents ->
+                if (documents.documents.isEmpty())
+                    return@addOnSuccessListener
+                val first = documents.documents[0]
+                usuarioActual = Users(
+                    uID,
+                    first.getString("userType").toString(),
+                    first.getString("userNum").toString(),
+                    first.getString("userCity").toString(),
+                    first.getString("techProf").toString()
+                    )
+
+                binding.usertypeTextview.text = usuarioActual.userType
+
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents: ", exception)
+            }
 
         updateUI()
     }
@@ -121,6 +157,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
     private fun signOut() {
         Firebase.auth.signOut()
         val intent = Intent(this,SignInActivity::class.java)
@@ -134,6 +171,7 @@ class MainActivity : AppCompatActivity() {
             binding.emailTextView.text = user.email
             binding.nameTextView.text = user.displayName
             binding.nameEditText.setText(user.displayName)
+
 
             //GLIDE
             Glide

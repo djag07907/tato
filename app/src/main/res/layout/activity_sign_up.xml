@@ -110,7 +110,9 @@
 <!--                android:text="@string/tech_type" />-->
 <!--        </RadioGroup>-->
 
-        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:checkedButton="@+id/radio_client"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -118,17 +120,19 @@
             android:layout_marginTop="30dp"
             android:layout_marginRight="24dp">
 
-            <RadioButton android:id="@+id/radio_client"
+            <RadioButton
+                android:id="@+id/radio_client"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/client_type"
-                android:onClick="onRadioButtonClicked"/>
+                />
 
-            <RadioButton android:id="@+id/radio_tech"
+            <RadioButton
+                android:id="@+id/radio_tech"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tech_type"
-                android:onClick="onRadioButtonClicked"/>
+                />
         </RadioGroup>
 
         <EditText
