@@ -5,6 +5,7 @@
     <string name="new_password">Nueva contraseña</string>
     <string name="current_password">Contraseña actual</string>
     <string name="name">Nombre Completo</string>
+    <string name="usertype">¿Eres Cliente o Técnico Profesional?</string>
     <string name="email">Correo Electronico</string>
     <string name="login">Iniciar Sesion</string>
     <string name="repeat_password">Confirma la contraseña</string>
@@ -29,4 +30,7 @@
     <string name="title_delete_account">Eliminar cuenta</string>
     <string name="subtitle_delete_account">Por motivos de seguridad para eliminar tu cuenta por completo, debes de ingresar tu contraseña.</string>
     <string name="delete">Eliminar</string>
+    <string name="client_type">Cliente</string>
+    <string name="tech_type">Tecnico Profesional</string>
+    <string name="user_type">Que tipo de usuario eres?</string>
 </resources>

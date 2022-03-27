@@ -86,6 +86,15 @@
                 android:gravity="center"
                 android:text="@string/user_email"
                 android:textSize="16sp" />
+            <TextView
+                android:id="@+id/usertypeTextview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="usertype"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
