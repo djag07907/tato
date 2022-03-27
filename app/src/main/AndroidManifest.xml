@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tato">
         <activity
+            android:name=".TechListingActivity"
+            android:exported="false" />
+        <activity
             android:name=".techwindowtest"
             android:exported="false" />
         <activity

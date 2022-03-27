@@ -34,4 +34,7 @@
     <string name="client_type">Cliente</string>
     <string name="tech_type">Tecnico Profesional</string>
     <string name="user_type">Que tipo de usuario eres?</string>
+    <string name="city_name">Ciudad: </string>
+    <string name="tech_profession">Profesion: </string>
+
 </resources>
