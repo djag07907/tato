@@ -4,11 +4,8 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Telephony.Carriers.PASSWORD
 import android.util.Log
 import android.util.Patterns
-import android.view.View
-import android.widget.RadioButton
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -44,6 +41,7 @@ class SignUpActivity : AppCompatActivity() {
             val mPassword = binding.passwordEditText.text.toString()
             val mRepeatPassword = binding.repeatPasswordEditText.text.toString()
             val selected = binding.radioGroup.checkedRadioButtonId
+            val userNum = binding.numberEditText.text.toString()
 
 
 
@@ -72,7 +70,7 @@ class SignUpActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
-                createAccount(mEmail, mPassword)
+                createAccount(mEmail, mPassword, userNum)
                 Toast.makeText(
                     baseContext, "Usuario creado exitosamente",
                     Toast.LENGTH_SHORT
@@ -86,11 +84,11 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         //send rbutton value to main activity
-        binding.radioGroup.setOnCheckedChangeListener { radioGroup, i ->
-            var rbuser = findViewById<RadioButton>(i)
-            val intent = Intent(this,MainActivity::class.java)
-            intent.putExtra("userIs", "string")
-        }
+//        binding.radioGroup.setOnCheckedChangeListener { radioGroup, i ->
+//            var rbuser = findViewById<RadioButton>(i)
+//            val intent = Intent(this,MainActivity::class.java)
+//            intent.putExtra("userIs", "string")
+//        }
 
     }
 
@@ -108,28 +106,8 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    // For a reason, private bricks this function
-//    fun onRadioButtonClicked(view: View) {
-//        if (view is RadioButton) {
-//            // Is the button now checked?
-//            val checked = view.isChecked
-//
-//            // Check which radio button was clicked
-//            when (view.getId()) {
-//                R.id.radio_client ->
-//                    if (checked) {
-//                        // Store state as client
-//                    }
-//                R.id.radio_tech ->
-//                    if (checked) {
-//                        // Store state as tech
-//                    }
-//            }
-//        }
-//    }
 
-
-    private fun createAccount(email: String, password: String) {
+    private fun createAccount(email: String, password: String, userNum: String) {
         val userType = if (binding.radioGroup.checkedRadioButtonId == R.id.radio_client) "CLIENTE" else "TECNICO"
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
@@ -145,7 +123,7 @@ class SignUpActivity : AppCompatActivity() {
                     val userToCreate = Users(
                         uID,
                         userType,
-                        "",
+                        userNum,
                         "",
                         ""
                     )

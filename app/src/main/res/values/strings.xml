@@ -5,6 +5,7 @@
     <string name="new_password">Nueva contraseña</string>
     <string name="current_password">Contraseña actual</string>
     <string name="name">Nombre Completo</string>
+    <string name="number">Número de teléfono</string>
     <string name="usertype">¿Eres Cliente o Técnico Profesional?</string>
     <string name="email">Correo Electronico</string>
     <string name="login">Iniciar Sesion</string>

@@ -1,6 +1,5 @@
 package solutions.alva.of.son.tato
 
-import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.net.Uri
@@ -44,7 +43,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.updateProfileAppCompatButton.setOnClickListener {
             val name = binding.nameEditText.text.toString()
-            updateProfile(name)
+            val userNum = binding.numberEditText.text.toString()
+            updateProfile(name, userNum)
+
         }
 
         binding.profileImageView.setOnClickListener {
@@ -85,6 +86,7 @@ class MainActivity : AppCompatActivity() {
                     )
 
                 binding.usertypeTextview.text = usuarioActual.userType
+                binding.userNumberTextview.text = usuarioActual.userNum
 
             }
             .addOnFailureListener { exception ->
@@ -139,11 +141,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateProfile(name : String) {
+    private fun updateProfile(name: String, userNum: String) {
         val user = auth.currentUser
 
         val profileUpdates = userProfileChangeRequest{
             displayName = name
+
         }
 
         user!!.updateProfile(profileUpdates)
@@ -171,6 +174,7 @@ class MainActivity : AppCompatActivity() {
             binding.emailTextView.text = user.email
             binding.nameTextView.text = user.displayName
             binding.nameEditText.setText(user.displayName)
+
 
 
             //GLIDE
