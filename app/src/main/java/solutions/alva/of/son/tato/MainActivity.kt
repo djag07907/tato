@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                     uID,
                     first.getString("userType").toString(),
                     first.getString("userNum").toString(),
-                    first.getString("userCity").toString(),
+                    first.getString("userDep").toString(),
                     first.getString("techProf").toString()
                     )
 
@@ -94,6 +94,10 @@ class MainActivity : AppCompatActivity() {
             }
 
         updateUI()
+
+        binding.testbtn.setOnClickListener {
+            test()
+        }
     }
 
     private fun fileManager() {
@@ -191,6 +195,11 @@ class MainActivity : AppCompatActivity() {
                 .placeholder(R.drawable.profile_photo)
                 .into(binding.bgProfileImageView)
         }
+    }
+
+    private fun test(){
+        val intent = Intent(this, TechListingActivity::class.java)
+        this.startActivity(intent)
     }
 
 }

@@ -4,7 +4,7 @@
     <string name="password">Contraseña</string>
     <string name="new_password">Nueva contraseña</string>
     <string name="current_password">Contraseña actual</string>
-    <string name="name">Nombre Completo</string>
+    <string name="name">Nombre</string>
     <string name="number">Número de teléfono</string>
     <string name="usertype">¿Eres Cliente o Técnico Profesional?</string>
     <string name="email">Correo Electronico</string>
@@ -34,7 +34,30 @@
     <string name="client_type">Cliente</string>
     <string name="tech_type">Tecnico Profesional</string>
     <string name="user_type">Que tipo de usuario eres?</string>
-    <string name="city_name">Ciudad: </string>
+    <string name="user_dep">De qué departamento eres?</string>
+    <string name="dep_name">Departamento: </string>
     <string name="tech_profession">Profesion: </string>
+
+    <string-array name="Departamentos">
+        <item>Atlántida</item>
+        <item>Choluteca</item>
+        <item>Colón</item>
+        <item>Comayagua</item>
+        <item>Copán</item>
+        <item>Cortés</item>
+        <item>El Paraíso</item>
+        <item>Francisco Morazán</item>
+        <item>Gracias a Dios</item>
+        <item>Intibucá</item>
+        <item>Islas de la Bahía</item>
+        <item>La Paz</item>
+        <item>Lempira</item>
+        <item>Ocotepeque</item>
+        <item>Olancho</item>
+        <item>Santa Bárbara</item>
+        <item>Valle</item>
+        <item>Yoro</item>
+
+    </string-array>
 
 </resources>

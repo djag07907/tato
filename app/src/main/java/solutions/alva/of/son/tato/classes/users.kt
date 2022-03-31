@@ -1,9 +1,14 @@
 package solutions.alva.of.son.tato.classes
 
+import androidx.annotation.Keep
+
+@NoArg
 data class Users(
-    var uId : String,
-    var userType : String,
-    var userNum : String,
-    var userCity : String,
-    var techProf : String
+    var uId: String? = null,
+    var userType: String? = null,
+    var userNum: String? = null,
+    var userDep: String? = null,
+    var techProf: String? = null
     )
+
+annotation class NoArg

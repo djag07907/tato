@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp"
@@ -14,6 +15,12 @@
         android:layout_marginVertical="6dp"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/userImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,13 +32,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/name"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/techName"
+                android:id="@+id/techNametv"
                 android:layout_marginStart="8dp"
                 android:text="Arya"
                 android:textColor="@color/black"
@@ -49,15 +56,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tech_profession"
+                android:text="Tipo de usuario"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/techProfession"
+                android:id="@+id/userTypetv"
                 android:layout_marginStart="8dp"
                 android:text="Tecnico en Informatica"
                 android:textColor="@color/black"
@@ -75,15 +82,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/city_name"
+                android:text="@string/number"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/techCity"
+                android:id="@+id/userNumtv"
                 android:layout_marginStart="8dp"
                 android:text="Tegucigalpa"
                 android:textColor="@color/black"
@@ -94,5 +101,7 @@
 
 
     </LinearLayout>
+
+
 
 </androidx.cardview.widget.CardView>

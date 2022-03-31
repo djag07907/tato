@@ -6,6 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -23,6 +27,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var db : FirebaseFirestore
+//    private lateinit var spinnerOptions: Spinner
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +47,7 @@ class SignUpActivity : AppCompatActivity() {
             val mRepeatPassword = binding.repeatPasswordEditText.text.toString()
             val selected = binding.radioGroup.checkedRadioButtonId
             val userNum = binding.numberEditText.text.toString()
+//            val userDep = binding.depSpinner.onItemSelectedListener
 
 
 
@@ -83,14 +89,32 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //send rbutton value to main activity
-//        binding.radioGroup.setOnCheckedChangeListener { radioGroup, i ->
-//            var rbuser = findViewById<RadioButton>(i)
-//            val intent = Intent(this,MainActivity::class.java)
-//            intent.putExtra("userIs", "string")
+
+//        val depList = listOf("Atlántida","Choluteca","Colón","Comayagua","Copán",
+//            "Cortés","El Paraíso","Francisco Morazán","Gracias a Dios","Intibucá",
+//            "Islas de la Bahía","La Paz","Lempira","Ocotepeque","Olancho","Santa Bárbara","Valle",
+//            "Yoro")
+//        spinnerOptions = findViewById(R.id.depSpinner)
+//
+//        val adaptador = ArrayAdapter(this,android.R.layout.simple_spinner_item,depList)
+//        spinnerOptions.adapter = adaptador
+//
+//        spinnerOptions.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+//            override fun onItemSelected(
+//                parent: AdapterView<*>?,
+//                view: View?,
+//                position: Int,
+//                id: Long) {
+//
+//            }
+//
+//            override fun onNothingSelected(p0: AdapterView<*>?) {
+//            }
+//
 //        }
 
     }
+
 
     public override fun onStart() {
         super.onStart()
@@ -109,6 +133,8 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun createAccount(email: String, password: String, userNum: String) {
         val userType = if (binding.radioGroup.checkedRadioButtonId == R.id.radio_client) "CLIENTE" else "TECNICO"
+//        val userDep = binding.depSpinner.onItemSelectedListener
+
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
