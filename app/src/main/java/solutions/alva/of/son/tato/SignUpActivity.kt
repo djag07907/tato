@@ -47,6 +47,7 @@ class SignUpActivity : AppCompatActivity() {
             val mRepeatPassword = binding.repeatPasswordEditText.text.toString()
             val selected = binding.radioGroup.checkedRadioButtonId
             val userNum = binding.numberEditText.text.toString()
+            val userName = binding.uNameEditText.text.toString()
 //            val userDep = binding.depSpinner.onItemSelectedListener
 
 
@@ -76,7 +77,7 @@ class SignUpActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
-                createAccount(mEmail, mPassword, userNum)
+                createAccount(mEmail, mPassword, userNum, userName)
                 Toast.makeText(
                     baseContext, "Usuario creado exitosamente",
                     Toast.LENGTH_SHORT
@@ -131,7 +132,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
 
-    private fun createAccount(email: String, password: String, userNum: String) {
+    private fun createAccount(email: String, password: String, userNum: String, userName: String) {
         val userType = if (binding.radioGroup.checkedRadioButtonId == R.id.radio_client) "CLIENTE" else "TECNICO"
 //        val userDep = binding.depSpinner.onItemSelectedListener
 
@@ -148,6 +149,7 @@ class SignUpActivity : AppCompatActivity() {
                         }
                     val userToCreate = Users(
                         uID,
+                        userName,
                         userType,
                         userNum,
                         "",

@@ -37,6 +37,9 @@
     <string name="user_dep">De qué departamento eres?</string>
     <string name="dep_name">Departamento: </string>
     <string name="tech_profession">Profesion: </string>
+    <string name="view_profile">Ver perfil </string>
+    <string name="view_techs">Mostrar listado de tecnicos </string>
+
 
     <string-array name="Departamentos">
         <item>Atlántida</item>

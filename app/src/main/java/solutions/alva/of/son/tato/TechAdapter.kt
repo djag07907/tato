@@ -23,7 +23,7 @@ class TechAdapter(private val techList : ArrayList<Users>) : RecyclerView.Adapte
     override fun onBindViewHolder(holder: TechAdapter.MyViewHolder, position: Int) {
 
         val user = techList[position]
-        holder.techName.text = user.uId
+        holder.techName.text = user.userName
         holder.userTypes.text = user.userType
         holder.userNumber.text = user.userNum
 

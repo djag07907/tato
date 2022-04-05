@@ -30,6 +30,8 @@ class SignInActivity : AppCompatActivity() {
         setContentView(binding.root)
         // Initialize Firebase Auth
         auth = Firebase.auth
+        //Initialize usuarioActual
+
 
         //Instantiate Firebase login component
         binding.signInAppCompatButton.setOnClickListener {
@@ -96,25 +98,14 @@ class SignInActivity : AppCompatActivity() {
 
     private fun reload() {
 //        if(usuarioActual.userType == "TECNICO") {
-            val intent = Intent(this, MainActivity::class.java)
-            this.startActivity(intent)
-//        }
-//        if (usuarioActual.userType == "CLIENTE") {
-//            val intent = Intent(this,TechListingActivity::class.java)
+//            val intent = Intent(this, MainActivity::class.java)
 //            this.startActivity(intent)
+//        } else {
+//            if (usuarioActual.userType == "CLIENTE") {
+                val intent = Intent(this, MainActivity::class.java)
+                this.startActivity(intent)
+//            }
 //        }
     }
 
-//    fun verType(){
-//        if(usuarioActual.userType == "CLIENT"){
-//            val intent = Intent(this,TechListingActivity::class.java)
-//            this.startActivity(intent)
-//        } else {
-//            if(usuarioActual.userType == "TECNICO"){
-//                val intent = Intent(this, MainActivity::class.java)
-//                this.startActivity(intent)
-//            }
-//        }
-//
-//    }
 }
