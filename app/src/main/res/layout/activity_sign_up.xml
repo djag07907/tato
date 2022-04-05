@@ -11,7 +11,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_back"
@@ -51,8 +50,8 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="409dp"
-        android:layout_height="559dp"
-        android:layout_marginBottom="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,21 +60,38 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <EditText
-            android:id="@+id/emailEditText"
+            android:id="@+id/uNameEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginRight="24dp"
-            android:autofillHints="@string/email"
+            android:autofillHints="@string/name"
             android:background="@drawable/ic_field"
-            android:drawableStart="@drawable/ic_email"
-            android:drawableLeft="@drawable/ic_email"
+            android:drawableStart="@drawable/ic_user"
             android:drawablePadding="16dp"
             android:ems="10"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
+            android:hint="@string/name"
+            android:inputType="textPersonName"
             android:padding="16dp" />
+
+        <EditText
+            android:id="@+id/numberEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="24dp"
+            android:autofillHints="@string/number"
+            android:background="@drawable/ic_field"
+            android:drawableStart="@drawable/ic_smartphone"
+            android:drawablePadding="16dp"
+            android:ems="10"
+            android:hint="@string/number"
+            android:inputType="number"
+            android:padding="16dp" />
+
+
 
         <TextView
             android:layout_width="match_parent"
@@ -106,36 +122,51 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tech_type" />
+
+
         </RadioGroup>
 
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="24dp"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:layout_marginRight="24dp"-->
+<!--            android:text="@string/user_dep" />-->
+<!--        <Spinner-->
+<!--            android:id="@+id/depSpinner"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:layout_marginLeft="24dp"-->
+<!--            android:layout_marginRight="24dp"-->
+<!--            />-->
+
         <EditText
-            android:id="@+id/numberEditText"
+            android:id="@+id/emailEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginRight="24dp"
-            android:autofillHints="@string/number"
+            android:autofillHints="@string/email"
             android:background="@drawable/ic_field"
-            android:drawableStart="@drawable/ic_smartphone"
-            android:drawableLeft="@drawable/ic_smartphone"
+            android:drawableStart="@drawable/ic_email"
             android:drawablePadding="16dp"
             android:ems="10"
-            android:hint="@string/number"
-            android:inputType="number"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
             android:padding="16dp" />
 
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginRight="24dp"
             android:autofillHints="@string/password"
             android:background="@drawable/ic_field"
             android:drawableStart="@drawable/ic_lock"
-            android:drawableLeft="@drawable/ic_lock"
             android:drawablePadding="16dp"
             android:ems="10"
             android:hint="@string/password"
@@ -146,14 +177,13 @@
         <EditText
             android:id="@+id/repeatPasswordEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginRight="24dp"
             android:autofillHints="@string/repeat_password"
             android:background="@drawable/ic_field"
             android:drawableStart="@drawable/ic_lock"
-            android:drawableLeft="@drawable/ic_lock"
             android:drawablePadding="16dp"
             android:ems="10"
             android:hint="@string/repeat_password"

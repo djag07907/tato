@@ -79,12 +79,14 @@ class MainActivity : AppCompatActivity() {
                 val first = documents.documents[0]
                 usuarioActual = Users(
                     uID,
+                    first.getString("userName"),
                     first.getString("userType").toString(),
                     first.getString("userNum").toString(),
-                    first.getString("userCity").toString(),
+                    first.getString("userDep").toString(),
                     first.getString("techProf").toString()
                     )
 
+                binding.nameTextView.text = usuarioActual.userName
                 binding.usertypeTextview.text = usuarioActual.userType
                 binding.userNumberTextview.text = usuarioActual.userNum
 
@@ -94,6 +96,10 @@ class MainActivity : AppCompatActivity() {
             }
 
         updateUI()
+
+        binding.testbtn.setOnClickListener {
+            test()
+        }
     }
 
     private fun fileManager() {
@@ -159,7 +165,10 @@ class MainActivity : AppCompatActivity() {
             }
     }
 
-
+    private fun test(){
+        val intent = Intent(this, MenuSelectionActivity::class.java)
+        this.startActivity(intent)
+    }
 
     private fun signOut() {
         Firebase.auth.signOut()
@@ -192,5 +201,7 @@ class MainActivity : AppCompatActivity() {
                 .into(binding.bgProfileImageView)
         }
     }
+
+
 
 }

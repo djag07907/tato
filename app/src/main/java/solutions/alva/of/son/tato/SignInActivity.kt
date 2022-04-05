@@ -7,7 +7,10 @@ import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import solutions.alva.of.son.tato.classes.Users
 import solutions.alva.of.son.tato.databinding.ActivitySignInBinding
 
 class SignInActivity : AppCompatActivity() {
@@ -15,6 +18,9 @@ class SignInActivity : AppCompatActivity() {
     //Firebase variables
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivitySignInBinding
+//    private val fileResult = 1
+    private lateinit var db : FirebaseFirestore
+    private lateinit var usuarioActual : Users
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +30,8 @@ class SignInActivity : AppCompatActivity() {
         setContentView(binding.root)
         // Initialize Firebase Auth
         auth = Firebase.auth
+        //Initialize usuarioActual
+
 
         //Instantiate Firebase login component
         binding.signInAppCompatButton.setOnClickListener {
@@ -51,6 +59,8 @@ class SignInActivity : AppCompatActivity() {
             val intent = Intent(this,AccountRecoveryActivity::class.java)
             this.startActivity(intent)
         }
+
+        db = Firebase.firestore
 
     }
 
@@ -87,7 +97,15 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun reload() {
-        val intent = Intent(this, MainActivity::class.java)
-        this.startActivity(intent)
+//        if(usuarioActual.userType == "TECNICO") {
+//            val intent = Intent(this, MainActivity::class.java)
+//            this.startActivity(intent)
+//        } else {
+//            if (usuarioActual.userType == "CLIENTE") {
+                val intent = Intent(this, MainActivity::class.java)
+                this.startActivity(intent)
+//            }
+//        }
     }
+
 }
