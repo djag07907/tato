@@ -41,7 +41,6 @@ class TechListingActivity : AppCompatActivity() {
 
         // Fetch data from firestore and set into techArrayList
         db = FirebaseFirestore.getInstance()
-//        if(usuarioActual.userType == "CLIENTE") {
             db.collection("users").whereEqualTo("userType","TECNICO").
             addSnapshotListener(object : EventListener<QuerySnapshot> {
                 override fun onEvent(
@@ -64,6 +63,5 @@ class TechListingActivity : AppCompatActivity() {
                 }
 
             })
-//        }
     }
 }

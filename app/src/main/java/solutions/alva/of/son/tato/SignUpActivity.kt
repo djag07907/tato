@@ -27,7 +27,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var db : FirebaseFirestore
-//    private lateinit var spinnerOptions: Spinner
+    private lateinit var spinnerOptions: Spinner
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,29 +90,30 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+//        Spinner options
+        val depList = listOf("Atlántida","Choluteca","Colón","Comayagua","Copán",
+            "Cortés","El Paraíso","Francisco Morazán","Gracias a Dios","Intibucá",
+            "Islas de la Bahía","La Paz","Lempira","Ocotepeque","Olancho","Santa Bárbara","Valle",
+            "Yoro")
+        var spinnerResult = ""
+        spinnerOptions = findViewById(R.id.depSpinner)
 
-//        val depList = listOf("Atlántida","Choluteca","Colón","Comayagua","Copán",
-//            "Cortés","El Paraíso","Francisco Morazán","Gracias a Dios","Intibucá",
-//            "Islas de la Bahía","La Paz","Lempira","Ocotepeque","Olancho","Santa Bárbara","Valle",
-//            "Yoro")
-//        spinnerOptions = findViewById(R.id.depSpinner)
-//
-//        val adaptador = ArrayAdapter(this,android.R.layout.simple_spinner_item,depList)
-//        spinnerOptions.adapter = adaptador
-//
-//        spinnerOptions.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
-//            override fun onItemSelected(
-//                parent: AdapterView<*>?,
-//                view: View?,
-//                position: Int,
-//                id: Long) {
-//
-//            }
-//
-//            override fun onNothingSelected(p0: AdapterView<*>?) {
-//            }
-//
-//        }
+        val adaptador = ArrayAdapter(this,android.R.layout.simple_spinner_item,depList)
+        spinnerOptions.adapter = adaptador
+
+        spinnerOptions.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long) {
+                spinnerResult = position.toString()
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+
+        }
 
     }
 

@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".MenuSelectionActivity">
 
+    <ImageView
+        android:id="@+id/signOutImageView"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_sign_out"
+        tools:ignore="VectorDrawableCompat" />
+
     <Button
         android:id="@+id/techDisplayBtn"
         android:layout_width="wrap_content"

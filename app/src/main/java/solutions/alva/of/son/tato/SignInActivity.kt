@@ -102,7 +102,7 @@ class SignInActivity : AppCompatActivity() {
 //            this.startActivity(intent)
 //        } else {
 //            if (usuarioActual.userType == "CLIENTE") {
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, MenuSelectionActivity::class.java)
                 this.startActivity(intent)
 //            }
 //        }

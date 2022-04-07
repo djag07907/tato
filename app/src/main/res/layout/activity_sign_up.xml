@@ -126,20 +126,20 @@
 
         </RadioGroup>
 
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginLeft="24dp"-->
-<!--            android:layout_marginTop="30dp"-->
-<!--            android:layout_marginRight="24dp"-->
-<!--            android:text="@string/user_dep" />-->
-<!--        <Spinner-->
-<!--            android:id="@+id/depSpinner"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="25dp"-->
-<!--            android:layout_marginLeft="24dp"-->
-<!--            android:layout_marginRight="24dp"-->
-<!--            />-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="24dp"
+            android:text="@string/user_dep" />
+        <Spinner
+            android:id="@+id/depSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            />
 
         <EditText
             android:id="@+id/emailEditText"
