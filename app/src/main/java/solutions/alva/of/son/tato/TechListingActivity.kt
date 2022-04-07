@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.*
+import com.google.firebase.firestore.model.Document
 import solutions.alva.of.son.tato.classes.Users
 
 class TechListingActivity : AppCompatActivity() {
@@ -14,6 +15,7 @@ class TechListingActivity : AppCompatActivity() {
     private lateinit var techArrayList : ArrayList<Users>
     private lateinit var techAdapter : TechAdapter
     private lateinit var db : FirebaseFirestore
+    private lateinit var usuarioActual : Users
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,27 +41,29 @@ class TechListingActivity : AppCompatActivity() {
 
         // Fetch data from firestore and set into techArrayList
         db = FirebaseFirestore.getInstance()
-        db.collection("users").
-                addSnapshotListener(object : EventListener<QuerySnapshot> {
-                    override fun onEvent(
-                        value: QuerySnapshot?,
-                        error: FirebaseFirestoreException?
-                    ){
-                      if (error != null) {
-                          Log.e("Firestore error", error.message.toString())
-                          return
-                      }
-                      for (dc : DocumentChange in value?.documentChanges!!){
+//        if(usuarioActual.userType == "CLIENTE") {
+            db.collection("users").whereEqualTo("userType","TECNICO").
+            addSnapshotListener(object : EventListener<QuerySnapshot> {
+                override fun onEvent(
+                    value: QuerySnapshot?,
+                    error: FirebaseFirestoreException?
+                ) {
+                    if (error != null) {
+                        Log.e("Firestore error", error.message.toString())
+                        return
+                    }
+                    for (dc: DocumentChange in value?.documentChanges!!) {
 
-                          if (dc.type == DocumentChange.Type.ADDED){
-                              techArrayList.add(dc.document.toObject(Users::class.java))
-                          }
-                      }
-
-                        techAdapter.notifyDataSetChanged()
-
+                        if (dc.type == DocumentChange.Type.ADDED) {
+                            techArrayList.add(dc.document.toObject(Users::class.java))
+                        }
                     }
 
-                })
+                    techAdapter.notifyDataSetChanged()
+
+                }
+
+            })
+//        }
     }
 }
