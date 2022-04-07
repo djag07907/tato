@@ -6,18 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".MenuSelectionActivity">
 
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/purple_700"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+
+            />
+
+        <GridLayout
+            android:background="@color/bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false"
+            android:rowCount="2">
+
+
+        </GridLayout>
+
+
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/signOutImageView"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="end"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="22dp"
         android:contentDescription="@string/all"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.912"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout4"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_sign_out"
+        app:srcCompat="@drawable/ic_sign_outwhite"
         tools:ignore="VectorDrawableCompat" />
 
     <Button

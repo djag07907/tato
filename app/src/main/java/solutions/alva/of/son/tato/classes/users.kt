@@ -9,7 +9,9 @@ data class Users(
     var userType: String? = null,
     var userNum: String? = null,
     var userDep: String? = null,
-    var techProf: String? = null
+    var techProf: String? = null,
+    var imageId : Int? = null
     )
+
 
 annotation class NoArg

@@ -1,13 +1,18 @@
 package solutions.alva.of.son.tato
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import solutions.alva.of.son.tato.classes.Users
+import solutions.alva.of.son.tato.databinding.ActivityMainBinding
 
-class TechAdapter(private val techList : ArrayList<Users>) : RecyclerView.Adapter<TechAdapter.MyViewHolder>() {
+class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter<TechAdapter.MyViewHolder>() {
+//    private lateinit var binding: ActivityMainBinding
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TechAdapter.MyViewHolder {
@@ -15,6 +20,8 @@ class TechAdapter(private val techList : ArrayList<Users>) : RecyclerView.Adapte
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item,
         parent,false)
 
+
+//        val imageView : ImageView = itemView.findViewById(R.id.userImageView)
         return MyViewHolder(itemView)
     }
 
@@ -26,6 +33,9 @@ class TechAdapter(private val techList : ArrayList<Users>) : RecyclerView.Adapte
         holder.techName.text = user.userName
         holder.userTypes.text = user.userType
         holder.userNumber.text = user.userNum
+        user.imageId = user.imageId
+
+//        techList[position].imageId?.let { holder.imageId.setImageResource(it) }
 
 
     }
@@ -46,6 +56,8 @@ class TechAdapter(private val techList : ArrayList<Users>) : RecyclerView.Adapte
         val techName : TextView = itemView.findViewById(R.id.techNametv)
         val userTypes : TextView = itemView.findViewById(R.id.userTypetv)
         val userNumber : TextView = itemView.findViewById(R.id.userNumtv)
+        val userImage : ImageView = itemView.findViewById(R.id.userImageView)
+//        val imageId : ImageView = itemView.findViewById(R.id.userImageView)
     }
 
 

@@ -6,7 +6,6 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.*
-import com.google.firebase.firestore.model.Document
 import solutions.alva.of.son.tato.classes.Users
 
 class TechListingActivity : AppCompatActivity() {
@@ -34,6 +33,8 @@ class TechListingActivity : AppCompatActivity() {
 
 
         EventChangeListener()
+
+
 
     }
 
