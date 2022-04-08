@@ -35,11 +35,29 @@ class MenuSelectionActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = Firebase.auth
         db = Firebase.firestore
-//
-//        //Initialize usuarioActual
+
+        // Initialize usuarioActual
 
 
-//        val uID = auth.currentUser?.uid?: ""
+        val uID = auth.currentUser?.uid?: ""
+        db.collection("users")
+            .whereEqualTo("uid", uID)
+            .get()
+            .addOnSuccessListener { documents ->
+                if (documents.documents.isEmpty())
+                    return@addOnSuccessListener
+                val first = documents.documents[0]
+                usuarioActual = Users(
+                    uID,
+                    first.getString("userName"),
+                    first.getString("userType").toString(),
+                    first.getString("userNum").toString(),
+                    first.getString("userDep").toString(),
+                    first.getString("techProf").toString()
+                )
+                //Hide UI elements
+                hideUI()
+            }
 
 
         binding.signOutImageView.setOnClickListener {
@@ -57,8 +75,7 @@ class MenuSelectionActivity : AppCompatActivity() {
         }
 
 
-        //Hide UI elements
-//        hideUI()
+
 
     }
 
@@ -80,13 +97,13 @@ class MenuSelectionActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-//    private fun hideUI(){
-//        val tipo = usuarioActual.userType
-//        if (tipo == "TECNICO"){
-//            binding.techDisplayBtn.setVisibility(View.GONE)
-//        } else {
-//            binding.techDisplayBtn.setVisibility(View.VISIBLE)
-//        }
-//    }
+    private fun hideUI(){
+        val tipo = usuarioActual.userType
+        if (tipo == "CLIENTE"){
+            binding.techDisplayBtn.setVisibility(View.VISIBLE)
+        } else {
+            binding.techDisplayBtn.setVisibility(View.GONE)
+        }
+    }
 
 }

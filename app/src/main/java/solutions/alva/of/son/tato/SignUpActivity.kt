@@ -7,10 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -19,6 +16,7 @@ import com.google.firebase.ktx.Firebase
 import solutions.alva.of.son.tato.classes.Users
 import solutions.alva.of.son.tato.databinding.ActivitySignUpBinding
 import java.util.regex.Pattern
+import kotlin.math.log
 
 
 class SignUpActivity : AppCompatActivity() {
@@ -28,6 +26,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var db : FirebaseFirestore
     private lateinit var spinnerOptions: Spinner
+    private lateinit var spinnerResult : String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +39,7 @@ class SignUpActivity : AppCompatActivity() {
         auth = Firebase.auth
         db = Firebase.firestore
 
+        spinnerResult = "Atlántida"
 
         binding.signUpButton.setOnClickListener {
             val mEmail = binding.emailEditText.text.toString()
@@ -95,7 +95,6 @@ class SignUpActivity : AppCompatActivity() {
             "Cortés","El Paraíso","Francisco Morazán","Gracias a Dios","Intibucá",
             "Islas de la Bahía","La Paz","Lempira","Ocotepeque","Olancho","Santa Bárbara","Valle",
             "Yoro")
-        var spinnerResult = ""
         spinnerOptions = findViewById(R.id.depSpinner)
 
         val adaptador = ArrayAdapter(this,android.R.layout.simple_spinner_item,depList)
@@ -107,7 +106,9 @@ class SignUpActivity : AppCompatActivity() {
                 view: View?,
                 position: Int,
                 id: Long) {
-                spinnerResult = position.toString()
+                spinnerResult = (view as? TextView)?.text.toString()
+
+                Log.i("result here",spinnerResult)
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -135,7 +136,8 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun createAccount(email: String, password: String, userNum: String, userName: String) {
         val userType = if (binding.radioGroup.checkedRadioButtonId == R.id.radio_client) "CLIENTE" else "TECNICO"
-//        val userDep = binding.depSpinner.onItemSelectedListener
+        val userDep = spinnerResult
+        Log.i("userDep here", userDep)
 
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
@@ -153,7 +155,7 @@ class SignUpActivity : AppCompatActivity() {
                         userName,
                         userType,
                         userNum,
-                        "",
+                        userDep,
                         ""
                     )
                     db.collection("users")

@@ -25,14 +25,15 @@
             />
 
         <GridLayout
-            android:background="@color/bg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
             android:alignmentMode="alignMargins"
+            android:background="@color/bg"
             android:columnOrderPreserved="false"
-            android:rowCount="2">
+            android:rowCount="2"
+            tools:visibility="visible">
 
 
         </GridLayout>
@@ -65,7 +66,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintVertical_bias="0.588"
+        tools:visibility="gone" />
 
     <Button
         android:id="@+id/profileBtn"
