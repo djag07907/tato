@@ -27,6 +27,8 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var db : FirebaseFirestore
     private lateinit var spinnerOptions: Spinner
     private lateinit var spinnerResult : String
+    private lateinit var profSpinnerResult : String
+    private lateinit var spinnerProfOptions : Spinner
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +42,7 @@ class SignUpActivity : AppCompatActivity() {
         db = Firebase.firestore
 
         spinnerResult = "Atlántida"
+        profSpinnerResult = "Tecnico informatico"
 
         binding.signUpButton.setOnClickListener {
             val mEmail = binding.emailEditText.text.toString()
@@ -90,7 +93,7 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-//        Spinner options
+//        Department Spinner options
         val depList = listOf("Atlántida","Choluteca","Colón","Comayagua","Copán",
             "Cortés","El Paraíso","Francisco Morazán","Gracias a Dios","Intibucá",
             "Islas de la Bahía","La Paz","Lempira","Ocotepeque","Olancho","Santa Bárbara","Valle",
@@ -109,6 +112,39 @@ class SignUpActivity : AppCompatActivity() {
                 spinnerResult = (view as? TextView)?.text.toString()
 
                 Log.i("result here",spinnerResult)
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+
+        }
+
+        //        Professions Spinner options
+        val profList = listOf("Abogado","Actor/Actriz","Administracion de empresas","Agricultor", "Albañil",
+            "Animador","Antropólogo","Arqueólogo","Arquitectura","Artesano","Banca y Finanza","Barbería",
+            "Barrendero","Biólogo","Botánico","Cajero","Carpintero","Cerrajero","Chef","Computista","Conductor con licencia ligera",
+            "Conductor con licencia pesada","Contabilidad","Contador","Dentista","Diseño grafico","Docente",
+            "Ecólogo","Economista","Electricista","Electrónica","Enfermería","Escritor","Escultor","Farmacólogo","Filósofo",
+            "Físico","Fontanería","Geógrafo","Historiador","Industrial","Informática","Lingüista",
+            "Locutor","Marketing","Matemático","Mecanico","Mecatrónica","Medicina","Médico cirujano",
+            "Músico","Negocios internacionales","Obrero","Paleontólogo","Panadería","Paramédico",
+            "Peletería","Periodista","Pintor","Plomería","Psicoanalista","Psicólogo","Químico",
+            "Radiólogo","Repartidor","Sastre","Secretaría","Sociólogo","Traductor","Turismólogo",
+            "Vigilante")
+        spinnerProfOptions = findViewById(R.id.profSpinner)
+
+        val profAdaptador = ArrayAdapter(this,android.R.layout.simple_spinner_item,profList)
+        spinnerProfOptions.adapter = profAdaptador
+
+        spinnerProfOptions.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long) {
+                profSpinnerResult = (view as? TextView)?.text.toString()
+
+                Log.i("result here",profSpinnerResult)
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -137,6 +173,7 @@ class SignUpActivity : AppCompatActivity() {
     private fun createAccount(email: String, password: String, userNum: String, userName: String) {
         val userType = if (binding.radioGroup.checkedRadioButtonId == R.id.radio_client) "CLIENTE" else "TECNICO"
         val userDep = spinnerResult
+        val techProf = profSpinnerResult
         Log.i("userDep here", userDep)
 
         auth.createUserWithEmailAndPassword(email, password)
@@ -156,7 +193,7 @@ class SignUpActivity : AppCompatActivity() {
                         userType,
                         userNum,
                         userDep,
-                        ""
+                        techProf
                     )
                     db.collection("users")
                         .add(userToCreate)

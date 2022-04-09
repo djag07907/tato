@@ -34,6 +34,7 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
         holder.userTypes.text = user.userType
         holder.userNumber.text = user.userNum
         holder.userDeps.text= user.userDep
+        holder.userProfs.text = user.techProf
         user.imageId = user.imageId
 
 //        techList[position].imageId?.let { holder.imageId.setImageResource(it) }
@@ -58,6 +59,7 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
         val userTypes : TextView = itemView.findViewById(R.id.userTypetv)
         val userNumber : TextView = itemView.findViewById(R.id.userNumtv)
         val userDeps : TextView = itemView.findViewById(R.id.userDepTv)
+        val userProfs : TextView = itemView.findViewById(R.id.userProfTv)
         val userImage : ImageView = itemView.findViewById(R.id.userImageView)
 //        val imageId : ImageView = itemView.findViewById(R.id.userImageView)
     }

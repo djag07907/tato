@@ -32,11 +32,12 @@
     <string name="subtitle_delete_account">Por motivos de seguridad para eliminar tu cuenta por completo, debes de ingresar tu contraseña.</string>
     <string name="delete">Eliminar</string>
     <string name="client_type">Cliente</string>
-    <string name="tech_type">Tecnico Profesional</string>
-    <string name="user_type">Que tipo de usuario eres?</string>
-    <string name="user_dep">De qué departamento eres?</string>
+    <string name="tech_type">Tecnico / Profesional</string>
+    <string name="user_type">¿Que tipo de usuario eres?</string>
+    <string name="user_dep">¿De qué departamento eres?</string>
     <string name="dep_name">Departamento </string>
     <string name="tech_profession">Profesion </string>
+    <string name="tech_professionSelect">¿Cuál es tu área de profesión u oficio? </string>
     <string name="view_profile">Ver perfil </string>
     <string name="view_techs">Mostrar listado de tecnicos </string>
 
