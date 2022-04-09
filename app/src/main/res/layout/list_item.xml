@@ -94,9 +94,64 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/userNumtv"
                 android:layout_marginStart="8dp"
-                android:text="Tegucigalpa"
+                android:text="99999999"
                 android:textColor="@color/black"
                 android:textSize="20sp"/>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dep_name"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/userDepTv"
+                android:layout_marginStart="8dp"
+                android:text="Francisco Morazan"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tech_profession"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/userProfTv"
+                android:layout_marginStart="8dp"
+                android:text="Tecnico informatico"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
 
 
         </LinearLayout>
