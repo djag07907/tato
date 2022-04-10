@@ -138,6 +138,38 @@
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="24dp"
+                android:text="@string/call_pref" />
+            <RadioGroup
+                android:id="@+id/contactRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="24dp"
+                android:checkedButton="@+id/radio_call"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radio_call"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_callopt" />
+
+                <RadioButton
+                    android:id="@+id/radio_whatsapp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_whatsappopt" />
+
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="24dp"
                 android:text="@string/tech_professionSelect" />
             <Spinner
                 android:id="@+id/profSpinner"

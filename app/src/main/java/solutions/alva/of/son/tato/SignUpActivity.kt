@@ -49,6 +49,7 @@ class SignUpActivity : AppCompatActivity() {
             val mPassword = binding.passwordEditText.text.toString()
             val mRepeatPassword = binding.repeatPasswordEditText.text.toString()
             val selected = binding.radioGroup.checkedRadioButtonId
+            val callPref = binding.contactRadioGroup.checkedRadioButtonId
             val userNum = binding.numberEditText.text.toString()
             val userName = binding.uNameEditText.text.toString()
 //            val userDep = binding.depSpinner.onItemSelectedListener
@@ -172,6 +173,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun createAccount(email: String, password: String, userNum: String, userName: String) {
         val userType = if (binding.radioGroup.checkedRadioButtonId == R.id.radio_client) "CLIENTE" else "TECNICO"
+        val callPref = if (binding.contactRadioGroup.checkedRadioButtonId == R.id.radio_call) "LLAMADA" else "WHATSAPP"
         val userDep = spinnerResult
         val techProf = profSpinnerResult
         Log.i("userDep here", userDep)
@@ -193,7 +195,8 @@ class SignUpActivity : AppCompatActivity() {
                         userType,
                         userNum,
                         userDep,
-                        techProf
+                        techProf,
+                        callPref
                     )
                     db.collection("users")
                         .add(userToCreate)

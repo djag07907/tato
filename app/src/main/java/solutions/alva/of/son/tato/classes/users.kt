@@ -10,6 +10,7 @@ data class Users(
     var userNum: String? = null,
     var userDep: String? = null,
     var techProf: String? = null,
+    var callPref : String? = null,
     var imageId : Int? = null
     )
 

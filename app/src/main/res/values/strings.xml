@@ -33,6 +33,10 @@
     <string name="delete">Eliminar</string>
     <string name="client_type">Cliente</string>
     <string name="tech_type">Tecnico / Profesional</string>
+    <string name="radio_callopt">Llamada</string>
+    <string name="radio_whatsappopt">Whatsapp</string>
+    <string name="call_pref">¿Cómo prefieres que te contacten?</string>
+    <string name="contact_like">Contactar por</string>
     <string name="user_type">¿Que tipo de usuario eres?</string>
     <string name="user_dep">¿De qué departamento eres?</string>
     <string name="dep_name">Departamento </string>
