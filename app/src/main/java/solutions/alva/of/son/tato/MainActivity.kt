@@ -83,12 +83,15 @@ class MainActivity : AppCompatActivity() {
                     first.getString("userType").toString(),
                     first.getString("userNum").toString(),
                     first.getString("userDep").toString(),
-                    first.getString("techProf").toString()
+                    first.getString("techProf").toString(),
+                    first.getString("callPref").toString()
                     )
 
                 binding.nameTextView.text = usuarioActual.userName
                 binding.usertypeTextview.text = usuarioActual.userType
                 binding.userNumberTextview.text = usuarioActual.userNum
+                binding.userCallPrefTv.text = usuarioActual.callPref
+                binding.userDepTv.text = usuarioActual.userDep
 
             }
             .addOnFailureListener { exception ->
@@ -176,6 +179,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    // Set functions to firestore data instead of firebase only
     private fun updateUI(){
         val user = auth.currentUser
 

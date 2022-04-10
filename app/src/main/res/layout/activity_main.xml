@@ -88,9 +88,29 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:layout_marginBottom="40dp"
+                    android:layout_marginBottom="20dp"
                     android:gravity="center"
                     android:text="@string/user_email"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/userCallPrefTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:text="@string/contact_like"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/userDepTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:text="@string/dep_name"
                     android:textSize="16sp" />
 
                 <TextView
