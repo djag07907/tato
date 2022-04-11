@@ -57,7 +57,10 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
         holder.userNumber.text = user.userNum
         holder.userDeps.text= user.userDep
         holder.userProfs.text = user.techProf
-        holder.callPrefs.text = user.callPref
+//        holder.callPrefs.text = user.callPref
+        holder.itemBtn.text = user.callPref
+
+        holder.bindButtons(listener = mListener)
         user.imageId = user.imageId
 
 
@@ -84,16 +87,23 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
         val userNumber : TextView = itemView.findViewById(R.id.userNumtv)
         val userDeps : TextView = itemView.findViewById(R.id.userDepTv)
         val userProfs : TextView = itemView.findViewById(R.id.userProfTv)
-        val callPrefs : TextView = itemView.findViewById(R.id.userContactTv)
+//        val callPrefs : TextView = itemView.findViewById(R.id.userContactTv)
         val userImage : ImageView = itemView.findViewById(R.id.userImageView)
-        val mListener : Button = itemView.findViewById(R.id.contactBtn)
+        var itemBtn = itemView.findViewById<Button>(R.id.contactBtn)
 
-        init {
 
-            itemView.setOnClickListener {
+        fun bindButtons(listener : onItemClickListener){
+            itemBtn.setOnClickListener{
                 listener.onItemClick(adapterPosition)
             }
         }
+
+//        init {
+//
+//            itemView.setOnClickListener {
+//                listener.onItemClick(adapterPosition)
+//            }
+//        }
 //        val imageId : ImageView = itemView.findViewById(R.id.userImageView)
 
 //        fun contactDecision(){

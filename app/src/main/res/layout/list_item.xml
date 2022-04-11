@@ -169,14 +169,14 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/userContactTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Preferencia de contacto"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+<!--            <TextView-->
+<!--                android:id="@+id/userContactTv"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                android:text="Preferencia de contacto"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="20sp" />-->
 
 
 
@@ -198,14 +198,6 @@
                 android:focusable="true"
                 android:text="Contactar" />
 
-            <TextView
-                android:id="@+id/contactTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Contactar"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
         </LinearLayout>
 
     </LinearLayout>
