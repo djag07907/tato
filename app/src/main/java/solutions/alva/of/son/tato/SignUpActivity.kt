@@ -72,7 +72,7 @@ class SignUpActivity : AppCompatActivity() {
             } else if (mPassword.isEmpty() || !passwordRegex.matcher(mPassword).matches()) {
                 Toast.makeText(
                     baseContext, "La contraseña es muy debil, debe contener al menos" +
-                            "1 caracter especial y 6 caracteres en total",
+                            " 1 caracter especial y 6 caracteres en total",
                     Toast.LENGTH_SHORT
                 ).show()
             } else if (mPassword != mRepeatPassword) {

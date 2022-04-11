@@ -1,10 +1,14 @@
 package solutions.alva.of.son.tato
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -24,6 +28,18 @@ class SignInActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //Check permissions
+
+        //Camera
+        checkPermission(Manifest.permission.CAMERA,101)
+        //Call
+        checkPermission(Manifest.permission.CALL_PHONE,100)
+        //Send SMS
+        checkPermission(Manifest.permission.SEND_SMS,123)
+
+
+
 
         //Variable initialization
         binding = ActivitySignInBinding.inflate(layoutInflater)
@@ -106,6 +122,48 @@ class SignInActivity : AppCompatActivity() {
                 this.startActivity(intent)
 //            }
 //        }
+    }
+
+    private fun checkPermission(permission: String, requestCode: Int) {
+        //CALL PERMISSION
+        if (ContextCompat.checkSelfPermission(this@SignInActivity, "android.permission.CALL_PHONE") == PackageManager.PERMISSION_DENIED) {
+
+            // Requesting the permission
+            ActivityCompat.requestPermissions(this@SignInActivity, arrayOf("android.permission.CALL_PHONE"), requestCode)
+        } else {
+            Log.i("Call permission", "granted")
+//            Toast.makeText(this@SignInActivity, "Permission already granted", Toast.LENGTH_SHORT).show()
+        }
+
+        //INTERNET PERMISSION
+        if (ContextCompat.checkSelfPermission(this@SignInActivity, "android.permission.INTERNET") == PackageManager.PERMISSION_DENIED) {
+
+            // Requesting the permission
+            ActivityCompat.requestPermissions(this@SignInActivity, arrayOf("android.permission.INTERNET"), requestCode)
+        } else {
+            Log.i("Internet permission", "granted")
+//            Toast.makeText(this@SignInActivity, "Permission already granted", Toast.LENGTH_SHORT).show()
+        }
+
+        //CAMERA PERMISSION
+        if (ContextCompat.checkSelfPermission(this@SignInActivity, "android.permission.CAMERA") == PackageManager.PERMISSION_DENIED) {
+
+            // Requesting the permission
+            ActivityCompat.requestPermissions(this@SignInActivity, arrayOf("android.permission.CAMERA"), requestCode)
+        } else {
+            Log.i("Camera permission", "granted")
+//            Toast.makeText(this@SignInActivity, "Permission already granted", Toast.LENGTH_SHORT).show()
+        }
+
+        //SEND SMS PERMISSION
+        if (ContextCompat.checkSelfPermission(this@SignInActivity, "android.permission.SEND_SMS") == PackageManager.PERMISSION_DENIED) {
+
+            // Requesting the permission
+            ActivityCompat.requestPermissions(this@SignInActivity, arrayOf("android.permission.SEND_SMS"), requestCode)
+        } else {
+            Log.i("Send SMS permission", "granted")
+//            Toast.makeText(this@SignInActivity, "Permission already granted", Toast.LENGTH_SHORT).show()
+        }
     }
 
 }
