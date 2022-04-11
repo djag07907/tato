@@ -38,6 +38,11 @@ class MainActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = Firebase.auth
 
+        binding.homeImageView.setOnClickListener {
+            val intent = Intent(this, MenuSelectionActivity::class.java)
+            this.startActivity(intent)
+        }
+
         binding.signOutImageView.setOnClickListener {
             signOut()
         }
@@ -100,9 +105,9 @@ class MainActivity : AppCompatActivity() {
 
         updateUI()
 
-        binding.testbtn.setOnClickListener {
-            test()
-        }
+//        binding.testbtn.setOnClickListener {
+//            test()
+//        }
     }
 
     private fun fileManager() {
