@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.*
 import solutions.alva.of.son.tato.classes.Users
+import solutions.alva.of.son.tato.databinding.ActivitySignInBinding
+import solutions.alva.of.son.tato.databinding.ActivityTechListingBinding
 
 class TechListingActivity : AppCompatActivity() {
 
@@ -33,7 +35,6 @@ class TechListingActivity : AppCompatActivity() {
 
 
         EventChangeListener()
-
 
 
     }
