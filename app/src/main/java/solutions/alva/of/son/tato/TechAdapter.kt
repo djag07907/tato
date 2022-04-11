@@ -25,7 +25,18 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
     private lateinit var db : FirebaseFirestore
     private lateinit var usuarioActual : Users
     private lateinit var binding: TechListingActivity
+    private lateinit var mListener : onItemClickListener
 
+    interface onItemClickListener {
+
+        fun onItemClick(position: Int)
+
+    }
+
+    fun onItemClickListener(listener : onItemClickListener){
+
+        mListener = listener
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TechAdapter.MyViewHolder {
@@ -34,7 +45,7 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
         parent,false)
 
 //        val imageView : ImageView = itemView.findViewById(R.id.userImageView)
-        return MyViewHolder(itemView)
+        return MyViewHolder(itemView, mListener)
     }
 
 
@@ -66,7 +77,7 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
     }
 
 
-    public class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
+    public class MyViewHolder(itemView : View, listener : onItemClickListener) : RecyclerView.ViewHolder(itemView) {
 
         // Fill recyclerview with data from firestore
         val techName : TextView = itemView.findViewById(R.id.techNametv)
@@ -77,6 +88,13 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
         val callPrefs : TextView = itemView.findViewById(R.id.userContactTv)
         val userImage : ImageView = itemView.findViewById(R.id.userImageView)
         val contactEvent : Button = itemView.findViewById(R.id.contactBtn)
+
+        init {
+
+            itemView.setOnClickListener {
+                listener.onItemClick(adapterPosition)
+            }
+        }
 //        val imageId : ImageView = itemView.findViewById(R.id.userImageView)
 
 //        fun contactDecision(){
