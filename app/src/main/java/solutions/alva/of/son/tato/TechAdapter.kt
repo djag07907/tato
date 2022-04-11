@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 import solutions.alva.of.son.tato.classes.Users
-import solutions.alva.of.son.tato.databinding.ActivityMainBinding
 
 class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter<TechAdapter.MyViewHolder>() {
 //    private lateinit var binding: ActivityMainBinding
@@ -87,7 +86,7 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
         val userProfs : TextView = itemView.findViewById(R.id.userProfTv)
         val callPrefs : TextView = itemView.findViewById(R.id.userContactTv)
         val userImage : ImageView = itemView.findViewById(R.id.userImageView)
-        val contactEvent : Button = itemView.findViewById(R.id.contactBtn)
+        val mListener : Button = itemView.findViewById(R.id.contactBtn)
 
         init {
 

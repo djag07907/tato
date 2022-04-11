@@ -25,6 +25,7 @@ class TechListingActivity : AppCompatActivity() {
     private lateinit var techAdapter : TechAdapter
     private lateinit var db : FirebaseFirestore
     private lateinit var usuarioActual : Users
+    private val PERMISSION_SEND_SMS = 123
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,7 +57,7 @@ class TechListingActivity : AppCompatActivity() {
                 if (contactChoice == "LLAMADA"){
 //                    @SuppressLint("MissingPermission")
                     val callIntent = Intent(Intent.ACTION_CALL)
-                    callIntent.data = Uri.parse("tel:" + contactNumber)
+                    callIntent.data = Uri.parse("tel:" + "+504"+contactNumber)
 
                     if (ActivityCompat.checkSelfPermission(applicationContext, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                         ActivityCompat.requestPermissions(this@TechListingActivity,arrayOf(Manifest.permission.CALL_PHONE),
@@ -69,7 +70,15 @@ class TechListingActivity : AppCompatActivity() {
                 }
 
                 if (contactChoice == "WHATSAPP") {
-
+                    val uri = Uri.parse("smsto:" + "+504"+contactNumber)
+                    val intent = Intent(Intent.ACTION_SENDTO,uri)
+                    intent.setPackage("com.whatsapp")
+                        if (ActivityCompat.checkSelfPermission(applicationContext, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+                            ActivityCompat.requestPermissions(this@TechListingActivity,arrayOf(Manifest.permission.SEND_SMS),
+                                PERMISSION_SEND_SMS
+                            )
+                        }
+                    startActivity(intent)
                 } else {
                     Log.i("Pref error","No contact pref selected")
                 }

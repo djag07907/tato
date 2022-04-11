@@ -35,6 +35,8 @@ class SignInActivity : AppCompatActivity() {
         checkPermission(Manifest.permission.CAMERA,101)
         //Call
         checkPermission(Manifest.permission.CALL_PHONE,100)
+        //Send SMS
+        checkPermission(Manifest.permission.SEND_SMS,123)
 
 
 
@@ -150,6 +152,16 @@ class SignInActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this@SignInActivity, arrayOf("android.permission.CAMERA"), requestCode)
         } else {
             Log.i("Camera permission", "granted")
+//            Toast.makeText(this@SignInActivity, "Permission already granted", Toast.LENGTH_SHORT).show()
+        }
+
+        //SEND SMS PERMISSION
+        if (ContextCompat.checkSelfPermission(this@SignInActivity, "android.permission.SEND_SMS") == PackageManager.PERMISSION_DENIED) {
+
+            // Requesting the permission
+            ActivityCompat.requestPermissions(this@SignInActivity, arrayOf("android.permission.SEND_SMS"), requestCode)
+        } else {
+            Log.i("Send SMS permission", "granted")
 //            Toast.makeText(this@SignInActivity, "Permission already granted", Toast.LENGTH_SHORT).show()
         }
     }
