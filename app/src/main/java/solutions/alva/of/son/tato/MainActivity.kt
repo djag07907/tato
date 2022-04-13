@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -31,6 +32,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // OnStart functions
 
         //Variable initialization
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -92,12 +95,16 @@ class MainActivity : AppCompatActivity() {
                     first.getString("callPref").toString()
                     )
 
+
                 binding.nameTextView.text = usuarioActual.userName
-                binding.usertypeTextview.text = usuarioActual.userType
+                //changed usertype to userprof
+                binding.usertypeTextview.text = usuarioActual.techProf
+                //
                 binding.userNumberTextview.text = usuarioActual.userNum
                 binding.userCallPrefTv.text = usuarioActual.callPref
                 binding.userDepTv.text = usuarioActual.userDep
-
+                hideCallPref()
+                hideUserType()
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
@@ -210,6 +217,33 @@ class MainActivity : AppCompatActivity() {
                 .into(binding.bgProfileImageView)
         }
     }
+
+    private fun hideCallPref(){
+        val tipo = usuarioActual.userType
+        if (tipo == "CLIENTE"){
+            binding.userCallPrefTv.setVisibility(View.GONE)
+        } else {
+            binding.userCallPrefTv.setVisibility(View.VISIBLE)
+        }
+    }
+
+    private fun hideUserType(){
+        val tipo = usuarioActual.userType
+        if (tipo == "CLIENTE"){
+            binding.usertypeTextview.setVisibility(View.GONE)
+        } else {
+            binding.usertypeTextview.setVisibility(View.VISIBLE)
+        }
+    }
+
+//    private fun hideUserTechProf(){
+//        val tipo = usuarioActual.userType
+//        if (tipo == "CLIENTE"){
+//            binding.usertypeTextview.setVisibility(View.GONE)
+//        } else {
+//            binding.usertypeTextview.setVisibility(View.VISIBLE)
+//        }
+//    }
 
 
 
