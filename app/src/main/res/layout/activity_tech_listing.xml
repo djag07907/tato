@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         tools:context=".TechListingActivity">
 
-        <LinearLayout
+        <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/topLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="2dp"
                 tools:layout_editor_absoluteY="259dp" />
-        </LinearLayout>
+        </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/techRecyclerView"
