@@ -98,53 +98,5 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
             }
         }
 
-//        init {
-//
-//            itemView.setOnClickListener {
-//                listener.onItemClick(adapterPosition)
-//            }
-//        }
-//        val imageId : ImageView = itemView.findViewById(R.id.userImageView)
-
-//        fun contactDecision(){
-//            contactEvent.setOnClickListener{
-//                Log.i("result here","BUTTON WORKING")
-//            }
-//        }
-
     }
-
-//    private fun contactDecision(event : Event, position: Int){
-//
-//        val user = techList[position]
-//        val contactChoice = user.callPref
-//        val contactNumber = user.userNum.toString()
-//        val REQUEST_PHONE_CALL = 1
-//        val callIntent = Intent(Intent.ACTION_CALL)
-//
-//        if (contactChoice == "LLAMADA"){
-//            callIntent.data = Uri.parse("tel:" + contactNumber)
-//            startActivity(callIntent)
-//        }
-//
-//        if (contactChoice == "WHATSAPP") {
-//
-//        } else {
-//            Log.i("Pref error","No contact pref selected")
-//        }
-//    }
-//
-//    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray){
-//        if(requestCode == REQUEST_PHONE_CALL)startCall()
-//    }
-
-
 }
-
-//    contactBtn.setOnClickListener {
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CALL_PHONE), REQUEST_PHONE_CALL)
-//        } else {
-//
-//        }
-//    }
