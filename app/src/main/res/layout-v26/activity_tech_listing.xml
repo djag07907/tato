@@ -22,9 +22,11 @@
             android:background="#322e89">
 
             <SearchView
+                android:theme="@style/ThemeOverlay.SearchView"
                 android:id="@+id/searchFilterView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:searchIcon="@drawable/ic_search"
                 android:iconifiedByDefault="false"
                 android:queryHint="Ingrese la profesion que busca"
                 android:layout_marginTop="16dp"

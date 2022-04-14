@@ -27,6 +27,13 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="ThemeOverlay.SearchView" parent="">
+        <!-- Text color -->
+        <item name="android:editTextColor">@color/white</item>
+        <!-- Hint text color -->
+        <item name="android:textColorHint">@color/white</item>
+    </style>
+
 <!--    <style name="Theme.App" parent="Theme.MaterialComponents.*">-->
 <!--        <item name="radioButtonStyle">@style/Widget.App.RadioButton</item>-->
 <!--    </style>-->
