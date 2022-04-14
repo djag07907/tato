@@ -24,6 +24,15 @@
             android:layout_height="90dp"
             app:srcCompat="@drawable/profile_photo" />
 
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rating="0"
+            android:numStars="5"
+            />
+
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -198,6 +207,7 @@
                 android:text="Contactar" />
 
         </LinearLayout>
+
 
     </LinearLayout>
 

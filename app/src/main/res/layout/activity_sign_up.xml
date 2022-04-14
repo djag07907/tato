@@ -7,19 +7,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:context=".SignUpActivity">
 
         <ImageView
             android:id="@+id/backImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_back"
+            app:srcCompat="@drawable/img_backblue"
             tools:ignore="VectorDrawableCompat"
             android:contentDescription="@string/all"
             android:layout_marginStart="16dp" />
@@ -37,10 +37,10 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:contentDescription="@string/all"
-                app:srcCompat="@drawable/ic_logo"
+                app:srcCompat="@drawable/img_capturaremoveb"
                 tools:ignore="VectorDrawableCompat" />
 
             <TextView
@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/title_active_login"
+                android:text="@string/signup"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -74,7 +74,7 @@
                 android:layout_marginRight="24dp"
                 android:autofillHints="@string/name"
                 android:background="@drawable/ic_field"
-                android:drawableStart="@drawable/ic_user"
+                android:drawableStart="@drawable/img_usuario1"
                 android:drawablePadding="16dp"
                 android:ems="10"
                 android:hint="@string/name"
@@ -90,7 +90,7 @@
                 android:layout_marginRight="24dp"
                 android:autofillHints="@string/number"
                 android:background="@drawable/ic_field"
-                android:drawableStart="@drawable/ic_smartphone"
+                android:drawableStart="@drawable/img_telefonointeli"
                 android:drawablePadding="16dp"
                 android:ems="10"
                 android:hint="@string/number"
@@ -105,6 +105,7 @@
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="24dp"
+                android:textColor="@color/black_500"
                 android:text="@string/user_type" />
 
             <RadioGroup
@@ -121,13 +122,17 @@
                     android:id="@+id/radio_client"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/client_type" />
+                    android:text="@string/client_type"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorLink="#322E89"
+                    android:buttonTint="#322e89"/>
 
                 <RadioButton
                     android:id="@+id/radio_tech"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tech_type" />
+                    android:text="@string/tech_type"
+                    android:buttonTint="#322e89"/>
 
 
             </RadioGroup>
@@ -138,6 +143,7 @@
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="24dp"
+                android:textColor="@color/black_500"
                 android:text="@string/call_pref" />
             <RadioGroup
                 android:id="@+id/contactRadioGroup"
@@ -153,13 +159,15 @@
                     android:id="@+id/radio_call"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_callopt" />
+                    android:text="@string/radio_callopt"
+                    android:buttonTint="#322e89"/>
 
                 <RadioButton
                     android:id="@+id/radio_whatsapp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_whatsappopt" />
+                    android:text="@string/radio_whatsappopt"
+                    android:buttonTint="#322e89"/>
 
 
             </RadioGroup>
@@ -169,6 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="30dp"
+                android:textColor="@color/black_500"
                 android:layout_marginRight="24dp"
                 android:text="@string/tech_professionSelect" />
             <Spinner
@@ -184,6 +193,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="30dp"
+                android:textColor="@color/black_500"
                 android:layout_marginRight="24dp"
                 android:text="@string/user_dep" />
             <Spinner
@@ -221,7 +231,7 @@
                 android:layout_marginRight="24dp"
                 android:autofillHints="@string/password"
                 android:background="@drawable/ic_field"
-                android:drawableStart="@drawable/ic_lock"
+                android:drawableStart="@drawable/img_contrasenas1"
                 android:drawablePadding="16dp"
                 android:ems="10"
                 android:hint="@string/password"
@@ -238,7 +248,7 @@
                 android:layout_marginRight="24dp"
                 android:autofillHints="@string/repeat_password"
                 android:background="@drawable/ic_field"
-                android:drawableStart="@drawable/ic_lock"
+                android:drawableStart="@drawable/img_contrasenas1"
                 android:drawablePadding="16dp"
                 android:ems="10"
                 android:hint="@string/repeat_password"

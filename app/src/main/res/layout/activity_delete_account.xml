@@ -47,7 +47,7 @@
             android:layout_marginRight="24dp"
             android:autofillHints="@string/password"
             android:background="@drawable/ic_field"
-            android:drawableStart="@drawable/ic_lock"
+            android:drawableStart="@drawable/img_contrasenas1"
             android:drawableLeft="@drawable/ic_lock"
             android:drawablePadding="16dp"
             android:ems="10"
