@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.metrics.Event
 import android.net.Uri
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,10 +14,18 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat.startActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import solutions.alva.of.son.tato.classes.Users
+import java.util.*
+import kotlin.collections.ArrayList
 
 class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter<TechAdapter.MyViewHolder>() {
 //    private lateinit var binding: ActivityMainBinding
@@ -24,6 +33,8 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
     private lateinit var db : FirebaseFirestore
     private lateinit var usuarioActual : Users
     private lateinit var binding: TechListingActivity
+//    private lateinit var techArrayList : ArrayList<Users>
+//    private lateinit var newArrayList : ArrayList<Users>
     private lateinit var mListener : onItemClickListener
 
     interface onItemClickListener {
@@ -40,9 +51,45 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TechAdapter.MyViewHolder {
 
+//        recyclerview = findViewById(R.id.techRecyclerView)
+//        recyclerview.layoutManager = LinearLayoutManager(this)
+
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item,
         parent,false)
 
+
+
+//        val item = itemView.findViewById(R.id.searchFilterView)
+//        val searchView = item?.actionView as SearchView
+//
+//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+//            override fun onQueryTextSubmit(p0: String?): Boolean {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//
+//                techArrayList.clear()
+//                val searchText = newText!!.lowercase(Locale.getDefault())
+//
+//                if (searchText.isNotEmpty()){
+//                    newArrayList.forEach{
+//                        if (it.techProf?.lowercase(Locale.getDefault())!!.contains(searchText)){
+//                            techArrayList.add(it)
+//                        }
+//                    }
+//
+//                    recyclerview.adapter?.notifyDataSetChanged()
+//                } else {
+//                    techArrayList.clear()
+//                    techArrayList.addAll(newArrayList)
+//                    recyclerview.adapter?.notifyDataSetChanged()
+//                }
+//
+//                return false
+//            }
+//
+//        })
 //        val imageView : ImageView = itemView.findViewById(R.id.userImageView)
         return MyViewHolder(itemView, mListener)
     }
@@ -61,7 +108,15 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
         holder.itemBtn.text = user.callPref
 
         holder.bindButtons(listener = mListener)
-        user.imageId = user.imageId
+
+
+//        val uri = data.data
+//
+//        uri?.let { imageUpload(it)
+//        val folder: StorageReference = FirebaseStorage.getInstance().reference.child("Users")
+//        val fileName: StorageReference = folder.child("img"+user!!.uId)
+//        val photoUrl = Uri.parse(uri.toString())
+//        user.imageId = Glide.with(itemView.getContext()).load(photoUrl).into(imageView)
 
 
 //        techList[position].imageId?.let { holder.imageId.setImageResource(it) }
@@ -88,7 +143,7 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
         val userDeps : TextView = itemView.findViewById(R.id.userDepTv)
         val userProfs : TextView = itemView.findViewById(R.id.userProfTv)
 //        val callPrefs : TextView = itemView.findViewById(R.id.userContactTv)
-        val userImage : ImageView = itemView.findViewById(R.id.userImageView)
+//        val userImage : ImageView = itemView.findViewById(R.id.userImageView)
         var itemBtn = itemView.findViewById<Button>(R.id.contactBtn)
 
 
@@ -98,53 +153,8 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
             }
         }
 
-//        init {
-//
-//            itemView.setOnClickListener {
-//                listener.onItemClick(adapterPosition)
-//            }
-//        }
-//        val imageId : ImageView = itemView.findViewById(R.id.userImageView)
-
-//        fun contactDecision(){
-//            contactEvent.setOnClickListener{
-//                Log.i("result here","BUTTON WORKING")
-//            }
-//        }
 
     }
 
-//    private fun contactDecision(event : Event, position: Int){
-//
-//        val user = techList[position]
-//        val contactChoice = user.callPref
-//        val contactNumber = user.userNum.toString()
-//        val REQUEST_PHONE_CALL = 1
-//        val callIntent = Intent(Intent.ACTION_CALL)
-//
-//        if (contactChoice == "LLAMADA"){
-//            callIntent.data = Uri.parse("tel:" + contactNumber)
-//            startActivity(callIntent)
-//        }
-//
-//        if (contactChoice == "WHATSAPP") {
-//
-//        } else {
-//            Log.i("Pref error","No contact pref selected")
-//        }
-//    }
-//
-//    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray){
-//        if(requestCode == REQUEST_PHONE_CALL)startCall()
-//    }
-
 
 }
-
-//    contactBtn.setOnClickListener {
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CALL_PHONE), REQUEST_PHONE_CALL)
-//        } else {
-//
-//        }
-//    }

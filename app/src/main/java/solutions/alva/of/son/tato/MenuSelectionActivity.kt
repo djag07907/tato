@@ -64,15 +64,21 @@ class MenuSelectionActivity : AppCompatActivity() {
             signOut()
         }
 
-
-
-        binding.techDisplayBtn.setOnClickListener {
+        binding.techListArrowImage.setOnClickListener {
             techListView()
         }
 
-        binding.profileBtn.setOnClickListener {
+        binding.profileArrowImage.setOnClickListener {
             profileView()
         }
+
+//        binding.techDisplayBtn.setOnClickListener {
+//            techListView()
+//        }
+//
+//        binding.profileBtn.setOnClickListener {
+//            profileView()
+//        }
 
 
 
@@ -100,9 +106,21 @@ class MenuSelectionActivity : AppCompatActivity() {
     private fun hideUI(){
         val tipo = usuarioActual.userType
         if (tipo == "CLIENTE"){
-            binding.techDisplayBtn.setVisibility(View.VISIBLE)
+            binding.techListArrowImage.setVisibility(View.VISIBLE)
         } else {
-            binding.techDisplayBtn.setVisibility(View.GONE)
+            binding.techListArrowImage.setVisibility(View.GONE)
+        }
+
+        if (tipo == "CLIENTE"){
+            binding.imageTechList.setVisibility(View.VISIBLE)
+        } else {
+            binding.imageTechList.setVisibility(View.GONE)
+        }
+
+        if (tipo == "CLIENTE"){
+            binding.techListTv.setVisibility(View.VISIBLE)
+        } else {
+            binding.techListTv.setVisibility(View.GONE)
         }
     }
 

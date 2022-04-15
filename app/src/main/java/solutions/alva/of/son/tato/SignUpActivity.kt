@@ -95,7 +95,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
 //        Department Spinner options
-        val depList = listOf("Atlántida","Choluteca","Colón","Comayagua","Copán",
+        val depList = listOf("-- Elije una opción --","Atlántida","Choluteca","Colón","Comayagua","Copán",
             "Cortés","El Paraíso","Francisco Morazán","Gracias a Dios","Intibucá",
             "Islas de la Bahía","La Paz","Lempira","Ocotepeque","Olancho","Santa Bárbara","Valle",
             "Yoro")
@@ -121,7 +121,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         //        Professions Spinner options
-        val profList = listOf("Abogado","Actor/Actriz","Administracion de empresas","Agricultor", "Albañil",
+        val profList = listOf("-- Elije una opción --","Abogado","Actor/Actriz","Administracion de empresas","Agricultor", "Albañil",
             "Animador","Antropólogo","Arqueólogo","Arquitectura","Artesano","Banca y Finanza","Barbería",
             "Barrendero","Biólogo","Botánico","Cajero","Carpintero","Cerrajero","Chef","Computista","Conductor con licencia ligera",
             "Conductor con licencia pesada","Contabilidad","Contador","Dentista","Diseño grafico","Docente",
