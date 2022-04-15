@@ -8,17 +8,24 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
-import android.widget.AdapterView
-import android.widget.SearchView
-import android.widget.Toast
+import android.view.View.inflate
+import android.widget.*
+import androidx.appcompat.resources.Compatibility.Api21Impl.inflate
 import androidx.core.app.ActivityCompat
+import androidx.core.content.res.ColorStateListInflaterCompat.inflate
+import androidx.core.content.res.ComplexColorCompat.inflate
+import androidx.core.graphics.drawable.DrawableCompat.inflate
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.EventListener
 import solutions.alva.of.son.tato.classes.Users
+import solutions.alva.of.son.tato.databinding.ActivityAccountRecoveryBinding.inflate
+import solutions.alva.of.son.tato.databinding.ActivityMainBinding
+import solutions.alva.of.son.tato.databinding.ActivityTechListingBinding
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -28,6 +35,7 @@ class TechListingActivity : AppCompatActivity() {
     private lateinit var recyclerview : RecyclerView
     private lateinit var techArrayList : ArrayList<Users>
     private lateinit var newArrayList : ArrayList<Users>
+    private lateinit var binding: ActivityTechListingBinding
     private lateinit var techAdapter : TechAdapter
     private lateinit var db : FirebaseFirestore
     private lateinit var usuarioActual : Users
@@ -39,6 +47,15 @@ class TechListingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_tech_listing)
 
 //        searchText = findViewById(R.id.)
+//
+
+//        val itemView = LayoutInflater.from(this).inflate(R.layout.list_item,
+//            parent,false)
+
+        binding = ActivityTechListingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+//        val backButtonImg : ImageView = itemView.findViewById(R.id.homeImageView)
 
         recyclerview = findViewById(R.id.techRecyclerView)
         recyclerview.layoutManager = LinearLayoutManager(this)

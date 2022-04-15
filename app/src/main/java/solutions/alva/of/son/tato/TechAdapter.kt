@@ -57,6 +57,8 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item,
         parent,false)
 
+
+
 //        val item = itemView.findViewById(R.id.searchFilterView)
 //        val searchView = item?.actionView as SearchView
 //
@@ -153,4 +155,6 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
 
 
     }
+
+
 }

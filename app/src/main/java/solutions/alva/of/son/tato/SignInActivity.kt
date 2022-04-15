@@ -136,14 +136,14 @@ class SignInActivity : AppCompatActivity() {
         }
 
         //INTERNET PERMISSION
-        if (ContextCompat.checkSelfPermission(this@SignInActivity, "android.permission.INTERNET") == PackageManager.PERMISSION_DENIED) {
-
-            // Requesting the permission
-            ActivityCompat.requestPermissions(this@SignInActivity, arrayOf("android.permission.INTERNET"), requestCode)
-        } else {
-            Log.i("Internet permission", "granted")
+//        if (ContextCompat.checkSelfPermission(this@SignInActivity, "android.permission.INTERNET") == PackageManager.PERMISSION_DENIED) {
+//
+//            // Requesting the permission
+//            ActivityCompat.requestPermissions(this@SignInActivity, arrayOf("android.permission.INTERNET"), requestCode)
+//        } else {
+//            Log.i("Internet permission", "granted")
 //            Toast.makeText(this@SignInActivity, "Permission already granted", Toast.LENGTH_SHORT).show()
-        }
+//        }
 
         //CAMERA PERMISSION
         if (ContextCompat.checkSelfPermission(this@SignInActivity, "android.permission.CAMERA") == PackageManager.PERMISSION_DENIED) {
