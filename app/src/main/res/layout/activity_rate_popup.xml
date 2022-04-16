@@ -6,18 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".RatePopupActivity">
 
+    <TextView
+        android:id="@+id/rateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate user"
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="70dp" />
+
     <RatingBar
         android:id="@+id/rateTechBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="234dp" />
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="139dp" />
 
     <Button
         android:id="@+id/rateTechBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enviar"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="363dp" />
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="510dp" />
+
+    <TextView
+        android:id="@+id/rateCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cantidad de reviews"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="210dp" />
+
+    <EditText
+        android:id="@+id/userReview"
+        android:layout_width="235dp"
+        android:layout_height="143dp"
+        android:text="Escribe una reseña"
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="259dp" />
+
+
+    <TextView
+        android:id="@+id/showRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rating"
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="120dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
