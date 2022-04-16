@@ -50,8 +50,8 @@ class TechListingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tech_listing)
 
-//        val searchText = findViewById(R.id.searchFilterView) as SearchView
-//        searchFilterView = searchText
+//        val searchFilterView = findViewById(R.id.searchFilterView) as SearchView
+//        var searchText = searchFilterView
 //
 
 //        val itemView = LayoutInflater.from(this).inflate(R.layout.list_item,
