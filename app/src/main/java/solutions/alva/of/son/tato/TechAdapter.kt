@@ -33,11 +33,13 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
     private lateinit var db : FirebaseFirestore
     private lateinit var usuarioActual : Users
     private lateinit var binding: TechListingActivity
-//    private lateinit var techArrayList : ArrayList<Users>
+
+    //    private lateinit var techArrayList : ArrayList<Users>
 //    private lateinit var newArrayList : ArrayList<Users>
     private lateinit var mListener : onItemClickListener
 
-    interface onItemClickListener {
+
+       interface onItemClickListener {
 
         fun onItemClick(position: Int)
 

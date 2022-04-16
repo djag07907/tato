@@ -38,17 +38,16 @@
                     tools:ignore="VectorDrawableCompat" />
 
                 <SearchView
-                    android:theme="@style/ThemeOverlay.SearchView"
                     android:id="@+id/searchFilterView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:searchIcon="@drawable/ic_search"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
                     android:iconifiedByDefault="false"
                     android:queryHint="Ingrese la profesion que busca"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginBottom="16dp"/>
-
+                    android:searchIcon="@drawable/ic_search"
+                    android:theme="@style/ThemeOverlay.SearchView" />
 
 
             </LinearLayout>

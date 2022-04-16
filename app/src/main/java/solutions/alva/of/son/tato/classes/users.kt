@@ -11,7 +11,8 @@ data class Users(
     var userDep: String? = null,
     var techProf: String? = null,
     var callPref : String? = null,
-    var imageId : Int? = null
+    var imageId : Int? = null,
+    var techRate: Double? = null
     )
 
 
