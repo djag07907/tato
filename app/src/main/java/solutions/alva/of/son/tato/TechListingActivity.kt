@@ -43,6 +43,7 @@ class TechListingActivity : AppCompatActivity() {
     private val PERMISSION_SEND_SMS = 123
 //    private lateinit var searchFilterView: SearchView
     private lateinit var startRating : Button
+    private lateinit var menuButton : ImageButton
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,13 +61,19 @@ class TechListingActivity : AppCompatActivity() {
         binding = ActivityTechListingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val backButtonImg : ImageView = itemView.findViewById(R.id.homeImageView)
-
 //        startRating = findViewById<Button>(R.id.rateBtn)
 //
 //        startRating.setOnClickListener {
 //            startRatingEvent()
 //        }
+
+        val homeImageView = findViewById(R.id.homeImageView) as ImageView
+
+        homeImageView.setOnClickListener {
+            val intent = Intent(this, MenuSelectionActivity::class.java)
+            this.startActivity(intent)
+        }
+
 
         recyclerview = findViewById(R.id.techRecyclerView)
         recyclerview.layoutManager = LinearLayoutManager(this)
@@ -88,9 +95,9 @@ class TechListingActivity : AppCompatActivity() {
 
 
         // START CALL SELECTION
-        techAdapter.onItemClickListener(object : TechAdapter.onItemClickListener{
+        techAdapter.onItemClickListener(object : TechAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
-                Log.i("result here","BUTTON WORKING, clicking on: $position")
+                Log.i("result here", "BUTTON WORKING, clicking on: $position")
 //                Toast.makeText(this@TechListingActivity,"Clicking on: $position",Toast.LENGTH_SHORT).show()
 
                 val user = techArrayList[position]
@@ -99,51 +106,63 @@ class TechListingActivity : AppCompatActivity() {
                 val REQUEST_PHONE_CALL = 1
                 val callIntent = Intent(Intent.ACTION_CALL)
 
-                if (contactChoice == "LLAMADA"){
+                if (contactChoice == "LLAMADA") {
 //                    @SuppressLint("MissingPermission")
                     val callIntent = Intent(Intent.ACTION_CALL)
-                    callIntent.data = Uri.parse("tel:" + "+504"+contactNumber)
+                    callIntent.data = Uri.parse("tel:" + "+504" + contactNumber)
 
-                    if (ActivityCompat.checkSelfPermission(applicationContext, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(this@TechListingActivity,arrayOf(Manifest.permission.CALL_PHONE),
+                    if (ActivityCompat.checkSelfPermission(
+                            applicationContext,
+                            Manifest.permission.CALL_PHONE
+                        ) != PackageManager.PERMISSION_GRANTED
+                    ) {
+                        ActivityCompat.requestPermissions(
+                            this@TechListingActivity, arrayOf(Manifest.permission.CALL_PHONE),
                             REQUEST_PHONE_CALL
                         )
                     }
-                    Log.i("Pref error","Llamando a:"+contactNumber)
+                    Log.i("Pref error", "Llamando a:" + contactNumber)
                     startActivity(callIntent)
 
 
                 }
 
                 if (contactChoice == "WHATSAPP") {
-                    val uri = Uri.parse("smsto:" + "+504"+contactNumber)
-                    val intent = Intent(Intent.ACTION_SENDTO,uri)
+                    val uri = Uri.parse("smsto:" + "+504" + contactNumber)
+                    val intent = Intent(Intent.ACTION_SENDTO, uri)
                     intent.setPackage("com.whatsapp")
-                        if (ActivityCompat.checkSelfPermission(applicationContext, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
-                            ActivityCompat.requestPermissions(this@TechListingActivity,arrayOf(Manifest.permission.SEND_SMS),
-                                PERMISSION_SEND_SMS
-                            )
-                        }
-                    Log.i("Pref error","Abriendo whatsapp de:"+contactNumber)
+                    if (ActivityCompat.checkSelfPermission(
+                            applicationContext,
+                            Manifest.permission.SEND_SMS
+                        ) != PackageManager.PERMISSION_GRANTED
+                    ) {
+                        ActivityCompat.requestPermissions(
+                            this@TechListingActivity, arrayOf(Manifest.permission.SEND_SMS),
+                            PERMISSION_SEND_SMS
+                        )
+                    }
+                    Log.i("Pref error", "Abriendo whatsapp de:" + contactNumber)
                     startActivity(intent)
                 } else {
-                    Log.i("Pref error","No contact pref selected")
+                    Log.i("Pref error", "No contact pref selected")
                 }
 
-//                @SuppressLint("MissingPermission")
-                fun startCall(){
+                //                @SuppressLint("MissingPermission")
+                fun startCall() {
                     val callIntent = Intent(Intent.ACTION_CALL)
                     callIntent.data = Uri.parse("tel:" + contactNumber)
                     startActivity(callIntent)
 
                 }
 
-                fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray){
-                    if(requestCode == REQUEST_PHONE_CALL)startCall()
+                fun onRequestPermissionsResult(
+                    requestCode: Int,
+                    permissions: Array<out String>,
+                    grantResults: IntArray
+                ) {
+                    if (requestCode == REQUEST_PHONE_CALL) startCall()
                 }
             }
-
-
 
 
         })

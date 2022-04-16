@@ -147,12 +147,24 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
 //        val callPrefs : TextView = itemView.findViewById(R.id.userContactTv)
 //        val userImage : ImageView = itemView.findViewById(R.id.userImageView)
         var itemBtn = itemView.findViewById<Button>(R.id.contactBtn)
+//        val rateBtn = itemView.findViewWithTag<Button>(R.id.rateBtn)
 
 
         fun bindButtons(listener : onItemClickListener){
             itemBtn.setOnClickListener{
                 listener.onItemClick(adapterPosition)
             }
+
+//            rateBtn.setOnClickListener {
+//                val intent = Intent(this, RatePopupActivity::class.java)
+//                this.startActivity(intent)
+//            }
+        }
+
+
+        fun startRate(listener : onItemClickListener){
+
+
         }
 
 

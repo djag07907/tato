@@ -10,47 +10,65 @@
         android:id="@+id/rateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="31dp"
         android:text="Rate user"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="70dp" />
+        app:layout_constraintBottom_toTopOf="@+id/showRating"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RatingBar
         android:id="@+id/rateTechBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="139dp" />
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/rateCounter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showRating" />
 
     <Button
         android:id="@+id/rateTechBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="146dp"
+        android:layout_marginBottom="173dp"
         android:text="Enviar"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="510dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userReview" />
 
     <TextView
         android:id="@+id/rateCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:text="Cantidad de reviews"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="210dp" />
+        app:layout_constraintBottom_toTopOf="@+id/userReview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rateTechBar" />
 
     <EditText
         android:id="@+id/userReview"
         android:layout_width="235dp"
-        android:layout_height="143dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="108dp"
         android:text="Escribe una reseña"
-        tools:layout_editor_absoluteX="91dp"
-        tools:layout_editor_absoluteY="259dp" />
+        app:layout_constraintBottom_toTopOf="@+id/rateTechBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rateCounter" />
 
 
     <TextView
         android:id="@+id/showRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
         android:text="Rating"
-        tools:layout_editor_absoluteX="185dp"
-        tools:layout_editor_absoluteY="120dp" />
+        app:layout_constraintBottom_toTopOf="@+id/rateTechBar"
+        app:layout_constraintStart_toStartOf="@+id/rateText"
+        app:layout_constraintTop_toBottomOf="@+id/rateText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
