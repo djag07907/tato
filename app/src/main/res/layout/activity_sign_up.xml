@@ -138,13 +138,16 @@
             </RadioGroup>
 
             <TextView
+                android:id="@+id/contactPrefTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="24dp"
+                android:text="@string/call_pref"
                 android:textColor="@color/black_500"
-                android:text="@string/call_pref" />
+                tools:visibility="visible" />
+
             <RadioGroup
                 android:id="@+id/contactRadioGroup"
                 android:layout_width="match_parent"
@@ -153,40 +156,44 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="24dp"
                 android:checkedButton="@+id/radio_call"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:visibility="visible">
 
                 <RadioButton
                     android:id="@+id/radio_call"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_callopt"
-                    android:buttonTint="#322e89"/>
+                    android:buttonTint="#322e89"
+                    android:text="@string/radio_callopt" />
 
                 <RadioButton
                     android:id="@+id/radio_whatsapp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_whatsappopt"
-                    android:buttonTint="#322e89"/>
+                    android:buttonTint="#322e89"
+                    android:text="@string/radio_whatsappopt" />
 
 
             </RadioGroup>
 
             <TextView
+                android:id="@+id/techProfTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="30dp"
-                android:textColor="@color/black_500"
                 android:layout_marginRight="24dp"
-                android:text="@string/tech_professionSelect" />
+                android:text="@string/tech_professionSelect"
+                android:textColor="@color/black_500"
+                tools:visibility="visible" />
+
             <Spinner
                 android:id="@+id/profSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="25dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
-                />
+                tools:visibility="visible" />
 
             <TextView
                 android:layout_width="match_parent"

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:layout_marginBottom="31dp"
-        android:text="Rate user"
+        android:text="Evaluación de técnico"
         app:layout_constraintBottom_toTopOf="@+id/showRating"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,13 +28,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/showRating" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/rateTechBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="146dp"
+        android:layout_marginStart="112dp"
         android:layout_marginBottom="173dp"
+        android:background="@drawable/ic_buttom"
+        android:paddingLeft="64dp"
+        android:paddingRight="64dp"
         android:text="Enviar"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userReview" />
@@ -44,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:text="Cantidad de reviews"
+        android:text="5 Reviews"
         app:layout_constraintBottom_toTopOf="@+id/userReview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,9 +56,10 @@
 
     <EditText
         android:id="@+id/userReview"
-        android:layout_width="235dp"
-        android:layout_height="0dp"
+        android:layout_width="218dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="108dp"
+        android:background="@color/bg"
         android:text="Escribe una reseña"
         app:layout_constraintBottom_toTopOf="@+id/rateTechBtn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +71,7 @@
         android:id="@+id/showRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
+        android:layout_marginStart="44dp"
         android:text="Rating"
         app:layout_constraintBottom_toTopOf="@+id/rateTechBar"
         app:layout_constraintStart_toStartOf="@+id/rateText"

@@ -40,6 +40,7 @@ class SignUpActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = Firebase.auth
         db = Firebase.firestore
+        hideElements()
 
         spinnerResult = "Atlántida"
         profSpinnerResult = "Tecnico informatico"
@@ -221,6 +222,26 @@ class SignUpActivity : AppCompatActivity() {
     private fun reload() {
         val intent = Intent(this, MainActivity::class.java)
         this.startActivity(intent)
+    }
+
+    private fun hideElements(){
+        val radioClient = findViewById(R.id.radio_client) as RadioButton
+        val radioTech = findViewById(R.id.radio_tech) as RadioButton
+//        if (radioClient.isChecked) {
+//            binding.contactPrefTv.setVisibility(View.)
+//            binding.contactRadioGroup.setVisibility(View.GONE)
+//            binding.techProfTv.setVisibility(View.GONE)
+//            binding.profSpinner.setVisibility(View.GONE)
+//        }
+
+        if (radioTech.isChecked) {
+            binding.contactPrefTv.setVisibility(View.VISIBLE)
+            binding.contactRadioGroup.setVisibility(View.VISIBLE)
+            binding.techProfTv.setVisibility(View.VISIBLE)
+            binding.profSpinner.setVisibility(View.VISIBLE)
+        }
+
+
     }
 
 }
