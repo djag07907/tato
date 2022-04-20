@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.View.inflate
+import android.widget.SearchView
 import android.widget.*
 import androidx.appcompat.resources.Compatibility.Api21Impl.inflate
 import androidx.core.app.ActivityCompat
@@ -42,10 +43,11 @@ class TechListingActivity : AppCompatActivity() {
     private lateinit var previewRate : RatingBar
     private lateinit var usuarioActual : Users
     private val PERMISSION_SEND_SMS = 123
-//    private lateinit var searchFilterView: SearchView
+    private lateinit var searchFilterView: SearchView
     lateinit var startRating : Button
     private lateinit var menuButton : ImageButton
     private lateinit var searchText : String
+    private lateinit var cleanSearchTextBtn : TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,21 +57,30 @@ class TechListingActivity : AppCompatActivity() {
         binding = ActivityTechListingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val previewRate = findViewById<RatingBar>(R.id.techPreviewRating)
-        val searchFilterView = findViewById<SearchView>(R.id.searchFilterView)
-//        searchText = ""
-        searchText = searchFilterView.query.toString()
-//
+        val cleanSearchTextBtn = findViewById(R.id.cleanButton) as TextView
 
-        //default rating per tech
-//        previewRate.rating = 2.5f
-//        startRating = findViewById(R.id.rateBtn) as Button
-//
-//        startRating.setOnClickListener {
-//            reviewView()
-//        }
-//        val itemView = LayoutInflater.from(this).inflate(R.layout.list_item,
-//            parent,false)
+
+        val previewRate = findViewById<RatingBar>(R.id.techPreviewRating)
+
+
+        val searchFilterView = findViewById<SearchView>(R.id.searchFilterView)
+        searchText = searchFilterView.query.toString()
+        searchFilterView.setSubmitButtonEnabled(true)
+        searchFilterView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String): Boolean {
+                searchText = query
+                Log.i("QUERY HEREEEE", query)
+                searchRun()
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                Log.i("QUERY HEEEEEEEERE", newText)
+
+                return false
+            }
+
+        })
 
 
         val homeImageView = findViewById(R.id.homeImageView) as ImageView
@@ -77,6 +88,11 @@ class TechListingActivity : AppCompatActivity() {
         homeImageView.setOnClickListener {
             val intent = Intent(this, MenuSelectionActivity::class.java)
             this.startActivity(intent)
+        }
+
+        cleanSearchTextBtn.setOnClickListener {
+            cleanSearch()
+            Toast.makeText(this@TechListingActivity,"Busqueda restablecida",Toast.LENGTH_SHORT).show()
         }
 
 
@@ -96,7 +112,6 @@ class TechListingActivity : AppCompatActivity() {
 
         techArrayList.addAll(newArrayList)
 
-//        val adapter = TechAdapter(techArrayList)
 
 
         // START CALL SELECTION
@@ -180,10 +195,14 @@ class TechListingActivity : AppCompatActivity() {
 
 
     private fun EventChangeListener() {
-        // Fetch data from firestore and set into techArrayLis
+        searchRun()
+        // Fetch data from firestore and set into techArrayList
+    }
 
+    private fun cleanSearch(){
+        val searchFilterView = findViewById<SearchView>(R.id.searchFilterView)
+        searchFilterView.setQuery("", false)
         db = FirebaseFirestore.getInstance()
-//        if (searchFilterView.isEmpty()) {
             db.collection("users").whereEqualTo("userType", "TECNICO")
                 .addSnapshotListener(object : EventListener<QuerySnapshot> {
                     override fun onEvent(
@@ -207,39 +226,70 @@ class TechListingActivity : AppCompatActivity() {
                     }
 
                 })
-//        } else {
-            Log.i("INFO","WORKING ON THIS")
-//                db
-//                .collection("users")
-//                    .whereEqualTo("techProf", searchFilterView)
-//                    .addSnapshotListener(object : EventListener<QuerySnapshot> {
-//                        override fun onEvent(
-//                            value: QuerySnapshot?,
-//                            error: FirebaseFirestoreException?
-//                        ) {
-//                            if (error != null) {
-//                                Log.e("Firestore error", error.message.toString())
-//                                return
-//                            }
-//                            techArrayList.clear()
-//                            for (dc: DocumentChange in value?.documentChanges!!) {
-//
-//                                if (dc.type == DocumentChange.Type.ADDED) {
-//                                    techArrayList.add(dc.document.toObject(Users::class.java))
-//                                }
-//                            }
-//
-//                            techAdapter.notifyDataSetChanged()
-//
-//                        }
-//
-//                    })
+    }
 
-//        }
+
+    private fun searchRun(){
+        db = FirebaseFirestore.getInstance()
+        if (searchText.isEmpty()) {
+            db.collection("users").whereEqualTo("userType", "TECNICO")
+                .addSnapshotListener(object : EventListener<QuerySnapshot> {
+                    override fun onEvent(
+                        value: QuerySnapshot?,
+                        error: FirebaseFirestoreException?
+                    ) {
+                        if (error != null) {
+                            Log.e("Firestore error", error.message.toString())
+                            return
+                        }
+                        techArrayList.clear()
+                        for (dc: DocumentChange in value?.documentChanges!!) {
+
+                            if (dc.type == DocumentChange.Type.ADDED) {
+                                techArrayList.add(dc.document.toObject(Users::class.java))
+                            }
+                        }
+
+                        techAdapter.notifyDataSetChanged()
+
+                    }
+
+                })
+        } else {
+            Log.i("INFO","WORKING ON THIS")
+            db
+                .collection("users")
+                .whereEqualTo("techProf", searchText)
+                .addSnapshotListener(object : EventListener<QuerySnapshot> {
+                    override fun onEvent(
+                        value: QuerySnapshot?,
+                        error: FirebaseFirestoreException?
+                    ) {
+                        if (error != null) {
+                            Log.e("Firestore error", error.message.toString())
+                            return
+                        }
+                        techArrayList.clear()
+                        for (dc: DocumentChange in value?.documentChanges!!) {
+
+                            if (dc.type == DocumentChange.Type.ADDED) {
+                                techArrayList.add(dc.document.toObject(Users::class.java))
+                            }
+                        }
+
+                        techAdapter.notifyDataSetChanged()
+
+                    }
+
+                })
+
+        }
     }
-    private fun reviewView(){
-        Log.i("tap tap","CHECKING RATE WINDOW")
-        val intent = Intent(this, RatePopupActivity::class.java)
-        this.startActivity(intent)
-    }
+
+
+//    private fun reviewView(){
+//        Log.i("tap tap","CHECKING RATE WINDOW")
+//        val intent = Intent(this, RatePopupActivity::class.java)
+//        this.startActivity(intent)
+//    }
 }
