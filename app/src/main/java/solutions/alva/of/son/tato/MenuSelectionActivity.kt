@@ -72,9 +72,9 @@ class MenuSelectionActivity : AppCompatActivity() {
             profileView()
         }
 
-//        binding.techDisplayBtn.setOnClickListener {
-//            techListView()
-//        }
+        binding.reviewBtn.setOnClickListener {
+            reviewView()
+        }
 //
 //        binding.profileBtn.setOnClickListener {
 //            profileView()
@@ -94,6 +94,12 @@ class MenuSelectionActivity : AppCompatActivity() {
     private fun techListView(){
         Log.i("tap tap","TYPING TECH LIST HERE")
         val intent = Intent(this, TechListingActivity::class.java)
+        this.startActivity(intent)
+    }
+
+    private fun reviewView(){
+        Log.i("tap tap","CHECKING RATE WINDOW")
+        val intent = Intent(this, RatePopupActivity::class.java)
         this.startActivity(intent)
     }
 

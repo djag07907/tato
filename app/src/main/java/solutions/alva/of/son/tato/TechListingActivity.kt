@@ -39,33 +39,38 @@ class TechListingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTechListingBinding
     private lateinit var techAdapter : TechAdapter
     private lateinit var db : FirebaseFirestore
+    private lateinit var previewRate : RatingBar
     private lateinit var usuarioActual : Users
     private val PERMISSION_SEND_SMS = 123
 //    private lateinit var searchFilterView: SearchView
-    private lateinit var startRating : Button
+    lateinit var startRating : Button
     private lateinit var menuButton : ImageButton
+    private lateinit var searchText : String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tech_listing)
 
-//        val searchFilterView = findViewById(R.id.searchFilterView) as SearchView
-//        var searchText = searchFilterView
-//
-
-//        val itemView = LayoutInflater.from(this).inflate(R.layout.list_item,
-//            parent,false)
-
-
         binding = ActivityTechListingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        startRating = findViewById<Button>(R.id.rateBtn)
+        val previewRate = findViewById<RatingBar>(R.id.techPreviewRating)
+        val searchFilterView = findViewById<SearchView>(R.id.searchFilterView)
+//        searchText = ""
+        searchText = searchFilterView.query.toString()
+//
+
+        //default rating per tech
+//        previewRate.rating = 2.5f
+//        startRating = findViewById(R.id.rateBtn) as Button
 //
 //        startRating.setOnClickListener {
-//            startRatingEvent()
+//            reviewView()
 //        }
+//        val itemView = LayoutInflater.from(this).inflate(R.layout.list_item,
+//            parent,false)
+
 
         val homeImageView = findViewById(R.id.homeImageView) as ImageView
 
@@ -232,8 +237,9 @@ class TechListingActivity : AppCompatActivity() {
 
 //        }
     }
-//    fun startRatingEvent(){
-//        val intent = Intent(this,RatePopupActivity::class.java)
-//        this.startActivity(intent)
-//    }
+    private fun reviewView(){
+        Log.i("tap tap","CHECKING RATE WINDOW")
+        val intent = Intent(this, RatePopupActivity::class.java)
+        this.startActivity(intent)
+    }
 }

@@ -2,7 +2,6 @@ package solutions.alva.of.son.tato
 
 import android.Manifest
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.metrics.Event
 import android.net.Uri
@@ -26,6 +25,7 @@ import com.google.firebase.storage.StorageReference
 import solutions.alva.of.son.tato.classes.Users
 import java.util.*
 import kotlin.collections.ArrayList
+import android.content.Intent as Intent1
 
 class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter<TechAdapter.MyViewHolder>() {
 //    private lateinit var binding: ActivityMainBinding
@@ -147,7 +147,7 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
 //        val callPrefs : TextView = itemView.findViewById(R.id.userContactTv)
 //        val userImage : ImageView = itemView.findViewById(R.id.userImageView)
         var itemBtn = itemView.findViewById<Button>(R.id.contactBtn)
-//        val rateBtn = itemView.findViewWithTag<Button>(R.id.rateBtn)
+//        val rateBtn = itemView.findViewById<Button>(R.id.rateBtn)
 
 
         fun bindButtons(listener : onItemClickListener){
@@ -156,8 +156,7 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
             }
 
 //            rateBtn.setOnClickListener {
-//                val intent = Intent(this, RatePopupActivity::class.java)
-//                this.startActivity(intent)
+//
 //            }
         }
 
@@ -169,6 +168,5 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
 
 
     }
-
 
 }

@@ -32,6 +32,7 @@
     <string name="subtitle_delete_account">Por motivos de seguridad para eliminar tu cuenta por completo, debes de ingresar tu contraseña.</string>
     <string name="delete">Eliminar</string>
     <string name="client_type">Cliente</string>
+    <string name="reviewBtn">Ver evaluacion</string>
     <string name="tech_type">Tecnico / Profesional</string>
     <string name="radio_callopt">Llamada</string>
     <string name="radio_whatsappopt">Whatsapp</string>

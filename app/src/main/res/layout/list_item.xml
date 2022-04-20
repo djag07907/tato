@@ -25,8 +25,10 @@
             app:srcCompat="@drawable/profile_photo" />
 
         <RatingBar
-            android:id="@+id/ratingBar"
+            android:id="@+id/techPreviewRating"
+            android:theme="@style/RatingBar"
             android:layout_width="wrap_content"
+            android:isIndicator="true"
             android:layout_height="wrap_content"
             android:numStars="5"
             android:rating="0" />
@@ -191,22 +193,39 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/contactBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
+                android:textColor="@color/white"
+                android:background="@drawable/ic_buttom"
                 android:focusable="true"
                 android:text="Contactar" />
 
-            <Button
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+<!--            <androidx.appcompat.widget.AppCompatButton-->
+<!--                android:id="@+id/rateTechBtn"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Calificar"-->
+<!--                android:layout_marginLeft="25dp"-->
+<!--                android:background="@drawable/ic_buttom"-->
+<!--                android:textColor="@color/white"/>-->
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/rateBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
+                android:textColor="@color/white"
+                android:background="@drawable/ic_buttom"
                 android:layout_marginLeft="25dp"
                 android:focusable="true"
                 android:text="Calificar" />
