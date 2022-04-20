@@ -108,7 +108,7 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
         holder.userProfs.text = user.techProf
 //        holder.callPrefs.text = user.callPref
         holder.itemBtn.text = user.callPref
-
+//        holder.previewRate.rating = user.techRate
         holder.bindButtons(listener = mListener)
 
 
@@ -148,6 +148,7 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
 //        val userImage : ImageView = itemView.findViewById(R.id.userImageView)
         var itemBtn = itemView.findViewById<Button>(R.id.contactBtn)
 //        val rateBtn = itemView.findViewById<Button>(R.id.rateBtn)
+        var previewRate = itemView.findViewById<RatingBar>(R.id.techPreviewRating)
 
 
         fun bindButtons(listener : onItemClickListener){

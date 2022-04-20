@@ -1,5 +1,6 @@
 package solutions.alva.of.son.tato.classes
 
+import android.net.Uri
 import androidx.annotation.Keep
 
 @NoArg
@@ -11,8 +12,8 @@ data class Users(
     var userDep: String? = null,
     var techProf: String? = null,
     var callPref : String? = null,
-    var imageId : Int? = null,
-    var techRate: Double? = null
+    var imageId : Uri? = null,
+    var techRate: Float? = null
     )
 
 
