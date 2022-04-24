@@ -236,15 +236,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    private fun hideUserTechProf(){
-//        val tipo = usuarioActual.userType
-//        if (tipo == "CLIENTE"){
-//            binding.usertypeTextview.setVisibility(View.GONE)
-//        } else {
-//            binding.usertypeTextview.setVisibility(View.VISIBLE)
-//        }
-//    }
-
-
 
 }

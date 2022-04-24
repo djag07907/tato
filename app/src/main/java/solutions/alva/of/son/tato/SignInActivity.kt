@@ -113,15 +113,8 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun reload() {
-//        if(usuarioActual.userType == "TECNICO") {
-//            val intent = Intent(this, MainActivity::class.java)
-//            this.startActivity(intent)
-//        } else {
-//            if (usuarioActual.userType == "CLIENTE") {
                 val intent = Intent(this, MenuSelectionActivity::class.java)
                 this.startActivity(intent)
-//            }
-//        }
     }
 
     private fun checkPermission(permission: String, requestCode: Int) {

@@ -72,16 +72,6 @@ class MenuSelectionActivity : AppCompatActivity() {
             profileView()
         }
 
-//        binding.reviewBtn.setOnClickListener {
-//            reviewView()
-//        }
-//
-//        binding.profileBtn.setOnClickListener {
-//            profileView()
-//        }
-
-
-
 
     }
 
