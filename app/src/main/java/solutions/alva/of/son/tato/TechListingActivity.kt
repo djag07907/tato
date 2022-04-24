@@ -44,7 +44,6 @@ class TechListingActivity : AppCompatActivity() {
     private lateinit var usuarioActual : Users
     private val PERMISSION_SEND_SMS = 123
     private lateinit var searchFilterView: SearchView
-    lateinit var startRating : Button
     private lateinit var menuButton : ImageButton
     private lateinit var searchText : String
     private lateinit var cleanSearchTextBtn : TextView
@@ -81,6 +80,7 @@ class TechListingActivity : AppCompatActivity() {
             }
 
         })
+
 
 
         val homeImageView = findViewById(R.id.homeImageView) as ImageView
@@ -120,6 +120,7 @@ class TechListingActivity : AppCompatActivity() {
                 Log.i("result here", "BUTTON WORKING, clicking on: $position")
 //                Toast.makeText(this@TechListingActivity,"Clicking on: $position",Toast.LENGTH_SHORT).show()
 
+//                val rateTechBtn = findViewById(R.id.rateBtn) as Button
                 val user = techArrayList[position]
                 val contactChoice = user.callPref
                 val contactNumber = user.userNum
@@ -286,10 +287,4 @@ class TechListingActivity : AppCompatActivity() {
         }
     }
 
-
-//    private fun reviewView(){
-//        Log.i("tap tap","CHECKING RATE WINDOW")
-//        val intent = Intent(this, RatePopupActivity::class.java)
-//        this.startActivity(intent)
-//    }
 }

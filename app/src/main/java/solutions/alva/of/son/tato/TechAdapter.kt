@@ -25,18 +25,16 @@ import com.google.firebase.storage.StorageReference
 import solutions.alva.of.son.tato.classes.Users
 import java.util.*
 import kotlin.collections.ArrayList
-import android.content.Intent as Intent1
+import android.content.Intent
 
 class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter<TechAdapter.MyViewHolder>() {
-//    private lateinit var binding: ActivityMainBinding
 
     private lateinit var db : FirebaseFirestore
     private lateinit var usuarioActual : Users
     private lateinit var binding: TechListingActivity
 
-    //    private lateinit var techArrayList : ArrayList<Users>
-//    private lateinit var newArrayList : ArrayList<Users>
     private lateinit var mListener : onItemClickListener
+
 
 
        interface onItemClickListener {
@@ -53,46 +51,10 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TechAdapter.MyViewHolder {
 
-//        recyclerview = findViewById(R.id.techRecyclerView)
-//        recyclerview.layoutManager = LinearLayoutManager(this)
 
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item,
         parent,false)
 
-
-
-//        val item = itemView.findViewById(R.id.searchFilterView)
-//        val searchView = item?.actionView as SearchView
-//
-//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-//            override fun onQueryTextSubmit(p0: String?): Boolean {
-//                TODO("Not yet implemented")
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//
-//                techArrayList.clear()
-//                val searchText = newText!!.lowercase(Locale.getDefault())
-//
-//                if (searchText.isNotEmpty()){
-//                    newArrayList.forEach{
-//                        if (it.techProf?.lowercase(Locale.getDefault())!!.contains(searchText)){
-//                            techArrayList.add(it)
-//                        }
-//                    }
-//
-//                    recyclerview.adapter?.notifyDataSetChanged()
-//                } else {
-//                    techArrayList.clear()
-//                    techArrayList.addAll(newArrayList)
-//                    recyclerview.adapter?.notifyDataSetChanged()
-//                }
-//
-//                return false
-//            }
-//
-//        })
-//        val imageView : ImageView = itemView.findViewById(R.id.userImageView)
         return MyViewHolder(itemView, mListener)
     }
 
@@ -108,6 +70,7 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
         holder.userProfs.text = user.techProf
 //        holder.callPrefs.text = user.callPref
         holder.itemBtn.text = user.callPref
+        holder.rateBtn.text = "Calificar"
 //        holder.previewRate.rating = user.techRate
         holder.bindButtons(listener = mListener)
 
@@ -139,15 +102,15 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
     public class MyViewHolder(itemView : View, listener : onItemClickListener) : RecyclerView.ViewHolder(itemView) {
 
         // Fill recyclerview with data from firestore
+        val intent: Intent? = null
         val techName : TextView = itemView.findViewById(R.id.techNametv)
         val userTypes : TextView = itemView.findViewById(R.id.userTypetv)
         val userNumber : TextView = itemView.findViewById(R.id.userNumtv)
         val userDeps : TextView = itemView.findViewById(R.id.userDepTv)
         val userProfs : TextView = itemView.findViewById(R.id.userProfTv)
-//        val callPrefs : TextView = itemView.findViewById(R.id.userContactTv)
 //        val userImage : ImageView = itemView.findViewById(R.id.userImageView)
         var itemBtn = itemView.findViewById<Button>(R.id.contactBtn)
-//        val rateBtn = itemView.findViewById<Button>(R.id.rateBtn)
+        val rateBtn = itemView.findViewById<Button>(R.id.rateBtn)
         var previewRate = itemView.findViewById<RatingBar>(R.id.techPreviewRating)
 
 
@@ -156,13 +119,13 @@ class TechAdapter(private val techList: ArrayList<Users>) : RecyclerView.Adapter
                 listener.onItemClick(adapterPosition)
             }
 
-//            rateBtn.setOnClickListener {
+
+            rateBtn.setOnClickListener {
 //
-//            }
-        }
-
-
-        fun startRate(listener : onItemClickListener){
+                val intent = Intent(itemView.context, RatePopupActivity::class.java)
+                itemView.context.startActivity(intent)
+                Log.i("Evaluation error", "Not working")
+            }
 
 
         }
