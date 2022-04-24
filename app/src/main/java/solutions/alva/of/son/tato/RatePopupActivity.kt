@@ -1,12 +1,10 @@
 package solutions.alva.of.son.tato
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.RatingBar
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import solutions.alva.of.son.tato.databinding.ActivityMainBinding
 
 class RatePopupActivity : AppCompatActivity() {
@@ -19,11 +17,21 @@ class RatePopupActivity : AppCompatActivity() {
 
     //count numbers of clicks
     var count = 0
+    var techAmountReviews = count
+
+//    val user = techList[position]
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rate_popup)
 
+
+        val homeImageView = findViewById(R.id.homeImageView) as ImageView
+
+        homeImageView.setOnClickListener {
+            val intent = Intent(this, MenuSelectionActivity::class.java)
+            this.startActivity(intent)
+        }
 
 //        ratingBar = findViewById(R.id.ratingBar) as RatingBar
         sendRating = findViewById(R.id.rateTechBtn) as Button
@@ -40,7 +48,7 @@ class RatePopupActivity : AppCompatActivity() {
     fun onTapRate() {
 
         // count increaser
-        count++
+        techAmountReviews++
 
         reviewsPerTech.text = "$count Reseñas totales"
     }

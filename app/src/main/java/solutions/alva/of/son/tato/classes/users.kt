@@ -13,7 +13,8 @@ data class Users(
     var techProf: String? = null,
     var callPref : String? = null,
     var imageId : Uri? = null,
-    var techRate: Float? = null
+    var techAmountReviews : Int? = null,
+    var techRateFinal: Float? = null
     )
 
 
