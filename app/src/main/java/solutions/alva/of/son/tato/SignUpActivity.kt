@@ -128,16 +128,16 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         //        Professions Spinner options
-        val profList = listOf("-- Elije una opción --","Abogado(a)","Actor/Actriz","Administracion de empresas","Agricultor(a)", "Albañilería",
-            "Animador(a)","Antropólogo(a)","Arqueólogo(a)","Arquitecto(a)","Artesano(a)","Banca y Finanza","Barbería",
-            "Barrendero(a)","Biólogo(a)","Botánico(a)","Cajero(a)","Carpintero(a)","Cerrajero(a)","Chef","Computista","Conductor(a) con licencia ligera",
-            "Conductor(a) con licencia pesada","Contabilidad","Contador(a)","Dentista","Diseño grafico","Docente",
-            "Ecólogo(a)","Economista","Electricista","Electrónica","Enfermería","Escritor(a)","Escultor(a)","Farmacólogo(a)","Filósofo(a)",
-            "Físico(a)","Fontanería","Geógrafo(a)","Historiador(a)","Industrial","Informática","Lingüista",
-            "Locutor(a)","Marketing","Matemático(a)","Mecanico(a)","Mecatrónica","Medicina","Médico cirujano",
-            "Músico(a)","Negocios internacionales","Obrero(a)","Paleontólogo(a)","Panadería","Paramédico(a)",
-            "Peletería","Periodista","Pintor(a)","Plomería","Psicoanalista","Psicólogo(a)","Químico(a)",
-            "Radiólogo(a)","Repartidor(a)","Sastre","Secretaría","Sociólogo(a)","Traductor(a)","Turismólogo(a)",
+        val profList = listOf("-- Elije una opción --","Abogado","Actor/Actriz","Administracion de empresas","Agricultor", "Albañilería",
+            "Animador","Antropólogo","Arqueólogo","Arquitecto","Artesano","Banca y Finanza","Barbería",
+            "Barrendero","Biólogo","Botánico","Cajero","Carpintero","Cerrajero","Chef","Computista","Conductor con licencia ligera",
+            "Conductor con licencia pesada","Contabilidad","Contador","Dentista","Diseño grafico","Docente",
+            "Ecólogo","Economista","Electricista","Electrónica","Enfermería","Escritor","Escultor","Farmacólogo","Filósofo",
+            "Físico","Fontanería","Geógrafo","Historiador","Industrial","Informática","Lingüista",
+            "Locutor","Marketing","Matemático","Mecanico","Mecatrónica","Medicina","Médico cirujano",
+            "Músico","Negocios internacionales","Obrero","Paleontólogo","Panadería","Paramédico",
+            "Peletería","Periodista","Pintor","Plomería","Psicoanalista","Psicólogo","Químico",
+            "Radiólogo","Repartidor","Sastre","Secretaría","Sociólogo","Traductor","Turismólogo",
             "Vigilante")
         spinnerProfOptions = findViewById(R.id.profSpinner)
 
