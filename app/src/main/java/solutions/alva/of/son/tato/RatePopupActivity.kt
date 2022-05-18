@@ -29,7 +29,7 @@ class RatePopupActivity : AppCompatActivity() {
         val homeImageView = findViewById(R.id.homeImageView) as ImageView
 
         homeImageView.setOnClickListener {
-            val intent = Intent(this, MenuSelectionActivity::class.java)
+            val intent = Intent(this, TechListingActivity::class.java)
             this.startActivity(intent)
         }
 
@@ -40,7 +40,9 @@ class RatePopupActivity : AppCompatActivity() {
 
         sendRating.setOnClickListener {
             onTapRate()
-            Toast.makeText(this, "Enviando evaluacion...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(baseContext, "Enviando evaluacion...", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, TechListingActivity::class.java)
+            this.startActivity(intent)
         }
 
     }
@@ -50,6 +52,6 @@ class RatePopupActivity : AppCompatActivity() {
         // count increaser
         techAmountReviews++
 
-        reviewsPerTech.text = "$count Reseñas totales"
+        reviewsPerTech.text = "Reseñas totales: $techAmountReviews"
     }
 }
